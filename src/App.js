@@ -1,10 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/homePage/homePage.page';
+import AboutPage from './pages/aboutPage/about.page';
+import ContactPage from './pages/contactPage/contact.page';
 
 function App() {
   return (
     <div className="App">
-      <h1>Starting the App!</h1>
+      <Routes>
+        <Route exact path='/' element={<HomePage />} />
+        <Route exact path='about' element={<AboutPage />} />
+        <Route exact path='contact' element={<ContactPage />} />
+      </Routes>
     </div>
   );
 }
