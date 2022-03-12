@@ -2,7 +2,7 @@ import { PortfolioTypes } from "./portfolio.types";
 
 const INITIAL_STATE = {
     imageNames: [],
-    imagesDownloading: false
+    imagesDownloading: true
 };
 
 const portfolioReducer = (state = INITIAL_STATE, action) => {

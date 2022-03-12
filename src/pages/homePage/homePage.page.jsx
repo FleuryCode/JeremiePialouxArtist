@@ -6,7 +6,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { connect } from "react-redux";
 import { setImageNames } from "../../redux/portfolio/portfolio.actions";
 
-const HomePage = ({setImageNames}) => {
+const HomePage = ({ setImageNames }) => {
     const dataArray = onSnapshot(doc(db, 'Portfolio', 'MainPortfolio'), (doc) => {
         const data = doc.data().images;
         // Organizing based on ID.
@@ -18,9 +18,9 @@ const HomePage = ({setImageNames}) => {
             imageNameArray.push(image.imageName);
         });
         setImageNames(imageNameArray);
-        
+
     });
-    
+
     useEffect(() => {
         dataArray();
     });
