@@ -9,3 +9,8 @@ export const setImagesDownloading = (imagesDownloading) => ({
     type: PortfolioTypes.SET_IMAGES_DOWNLOADING,
     payload: imagesDownloading
 });
+
+export const setImagesUrls = (imageUrlArray) => ({
+    type: PortfolioTypes.SET_IMAGES_URLS,
+    payload: imageUrlArray
+});

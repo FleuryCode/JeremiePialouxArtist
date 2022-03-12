@@ -3,12 +3,13 @@ import './portfolioContainer.styles.scss';
 import { doc, setDoc } from 'firebase/firestore';
 import { db, storage } from '../../firebase/firebase.utils';
 import { connect } from "react-redux";
-import { setImagesDownloading } from "../../redux/portfolio/portfolio.actions";
+import { setImagesDownloading, setImagesUrls } from "../../redux/portfolio/portfolio.actions";
 import { getDownloadURL, ref } from "firebase/storage";
 import { async } from "@firebase/util";
 import ImageLoading from "../imagesLoading/imageLoading.component";
+import PortfolioImage from "../portfolioImage/portfolioImage.component";
 
-const PortfolioContainer = ({ imageNames, imagesDownloading, setImagesDownloading }) => {
+const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImagesDownloading, setImagesUrls }) => {
 
     // For Future Ref
     // const testData = {
@@ -51,7 +52,7 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, setImagesDownloadin
     // }
 
 
-    const testFunction = async () => {
+    const getImageUrl = async () => {
         let imageUrls = [];
         for (let i = 0; i < imageNames.length; i++) {
             await getDownloadURL(ref(storage, `Portfolio/${imageNames[i]}`))
@@ -62,27 +63,34 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, setImagesDownloadin
                     console.log(error);
                 });
         };
-        console.log(imageUrls);
+
         if (imageUrls.length > 0 && imageNames.length === imageUrls.length) {
+            setImagesUrls(imageUrls);
             setImagesDownloading(false);
         }
     }
 
     useEffect(() => {
-        testFunction();
+        getImageUrl();
     });
-
-    const testStuff = false;
-
 
 
     return (
         <div className="mainPortfolioContainer container-fluid">
-            <div className={`${testStuff ? 'd-flex' : 'd-none'} row`}>
+            <div className={`${imagesDownloading ? 'd-flex' : 'd-none'} row p-3`}>
                 {
                     imageNames.map(name => (
-                        <div className="col-4">
+                        <div key={name} className="col-12 col-md-4">
                             <ImageLoading />
+                        </div>
+                    ))
+                }
+            </div>
+            <div className={`${imagesDownloading ? 'd-none' : 'd-flex'} row p-3`}>
+                {
+                    imagesUrls.map(url => (
+                        <div key={url} className="col-12 col-md-4">
+                            <PortfolioImage image={url} />
                         </div>
                     ))
                 }
@@ -94,11 +102,13 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, setImagesDownloadin
 
 const mapStateToProps = (state) => ({
     imageNames: state.portfolio.imageNames,
-    imagesDownloading: state.portfolio.imagesDownloading
+    imagesDownloading: state.portfolio.imagesDownloading,
+    imagesUrls: state.portfolio.imagesUrls
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setImagesDownloading: imagesDownloading => dispatch(setImagesDownloading(imagesDownloading))
+    setImagesDownloading: imagesDownloading => dispatch(setImagesDownloading(imagesDownloading)),
+    setImagesUrls: imagesUrls => dispatch(setImagesUrls(imagesUrls))
 });
 
 

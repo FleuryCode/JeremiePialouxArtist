@@ -1,0 +1,11 @@
+.portfolioImageContainer {
+    height: 40vh;
+    width: 100%;
+
+    img {
+        height: 100%;
+        width: auto;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+        margin: 2%;
+    }
+}
