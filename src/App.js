@@ -4,6 +4,7 @@ import HomePage from './pages/homePage/homePage.page';
 import AboutPage from './pages/aboutPage/about.page';
 import ContactPage from './pages/contactPage/contact.page';
 import Navigation from './components/navigation/navigation.component';
+import firebaseApp from './firebase/firebase.utils';
 
 function App() {
   return (
