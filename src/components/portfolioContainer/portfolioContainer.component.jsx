@@ -77,7 +77,7 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImag
 
     return (
         <div className="mainPortfolioContainer container-fluid">
-            <div className={`${imagesDownloading ? 'd-flex' : 'd-none'} row p-3`}>
+            <div className={`${imagesDownloading ? 'd-flex justify-content-center' : 'd-none'} row p-3`}>
                 {
                     imageNames.map(name => (
                         <div key={name} className="col-12 col-md-4">
@@ -89,7 +89,7 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImag
             <div className={`${imagesDownloading ? 'd-none' : 'd-flex'} row p-3`}>
                 {
                     imagesUrls.map(url => (
-                        <div key={url} className="col-12 col-md-4">
+                        <div key={url} className="col-12 col-lg-4">
                             <PortfolioImage image={url} />
                         </div>
                     ))

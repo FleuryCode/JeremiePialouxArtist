@@ -27,10 +27,9 @@ const HomePage = ({ setImageNames }) => {
 
 
     return (
-        <div className="homepageContainer container-fluid">
+        <div className="homepageContainer container-fluid mt-5">
             <div className="row">
                 <div className="col-12">
-                    <h1>Homepage</h1>
                     <PortfolioContainer />
                 </div>
             </div>
