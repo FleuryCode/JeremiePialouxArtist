@@ -1,0 +1,4 @@
+export const PortfolioTypes = {
+    SET_IMAGE_NAMES: 'SET_IMAGE_NAMES',
+    SET_IMAGES_DOWNLOADING: 'SET_IMAGES_DOWNLOADING'
+};
