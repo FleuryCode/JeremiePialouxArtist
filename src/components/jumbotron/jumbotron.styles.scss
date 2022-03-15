@@ -1,6 +1,7 @@
 .jumbotronContainer {
     width: 100vw;
-    height: 200vh;
+    min-height: 94vh;
+    margin-top: 6vh;
     background-color: red;
     z-index: 5;
 }
