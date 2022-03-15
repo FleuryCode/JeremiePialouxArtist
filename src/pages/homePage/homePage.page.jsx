@@ -5,7 +5,10 @@ import { db } from "../../firebase/firebase.utils";
 import { doc, onSnapshot } from "firebase/firestore";
 import { connect } from "react-redux";
 import { setImageNames } from "../../redux/portfolio/portfolio.actions";
-import Jumbotron from "../../components/jumbotron/jumbotron.component";
+import Jumbotron, { JumbotronItem } from "../../components/jumbotron/jumbotron.component";
+import testImageOne from '../../assets/testImageOne.jpg';
+import testImageTwo from '../../assets/testImageTwo.jpeg';
+import testImageThree from '../../assets/testImageThree.jpeg';
 
 const HomePage = ({ setImageNames }) => {
     const dataArray = onSnapshot(doc(db, 'Portfolio', 'MainPortfolio'), (doc) => {
@@ -31,7 +34,11 @@ const HomePage = ({ setImageNames }) => {
         <div className="homepageContainer container-fluid">
             <div className="row">
                 <div className="col-12 p-0">
-                    <Jumbotron />
+                    <Jumbotron>
+                        <JumbotronItem image={testImageOne} />
+                        <JumbotronItem image={testImageTwo} />
+                        <JumbotronItem image={testImageThree} />
+                    </Jumbotron>
                 </div>
             </div>
         </div>
