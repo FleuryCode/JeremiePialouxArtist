@@ -5,6 +5,7 @@ import { db } from "../../firebase/firebase.utils";
 import { doc, onSnapshot } from "firebase/firestore";
 import { connect } from "react-redux";
 import { setImageNames } from "../../redux/portfolio/portfolio.actions";
+import Jumbotron from "../../components/jumbotron/jumbotron.component";
 
 const HomePage = ({ setImageNames }) => {
     const dataArray = onSnapshot(doc(db, 'Portfolio', 'MainPortfolio'), (doc) => {
@@ -29,9 +30,8 @@ const HomePage = ({ setImageNames }) => {
     return (
         <div className="homepageContainer container-fluid">
             <div className="row">
-                <div className="col-12">
-                    <h1>Homepage</h1>
-                    <PortfolioContainer />
+                <div className="col-12 p-0">
+                    <Jumbotron />
                 </div>
             </div>
         </div>
