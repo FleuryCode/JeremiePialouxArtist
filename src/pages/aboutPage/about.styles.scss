@@ -1,0 +1,20 @@
+.aboutPageContainer {
+    margin-top: 12vh;
+
+    .aboutInfo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20% 8% 0 8%;
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 180%;
+        }
+    
+        p {
+            font-size: 140%;
+        }
+    }
+
+    
+}

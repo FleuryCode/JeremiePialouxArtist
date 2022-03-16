@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './jumbotron.styles.scss';
 
 export const JumbotronItem = ({ image }) => {
@@ -20,12 +20,23 @@ const Jumbotron = ({ children }) => {
 
         setActiveIndex(newIndex);
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            updateIndex(activeIndex + 1);
+        }, 3000);
+        return () => {
+            if (interval) {
+                clearInterval(interval);
+            }
+        }
+    });
     return (
         <div className="jumbotronContainer">
-            <div className="inner" style={{transform: `translateX(-${activeIndex * 100}%)`}}>
+            <div className="inner" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
                 {
                     React.Children.map(children, (child, index) => {
-                        return React.cloneElement(child, {width: "100%"})
+                        return React.cloneElement(child, { width: "100%" })
                     })
                 }
             </div>
