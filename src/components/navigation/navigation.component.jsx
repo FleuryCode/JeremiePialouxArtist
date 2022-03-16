@@ -14,8 +14,8 @@ const Navigation = () => {
                 <h3>Jeremie Pialoux</h3>
             </div>
             <div className="mainNavigation d-none d-sm-flex">
-                <Link className="navLink-item" to={'/'}>Work</Link>
-                <Link className="navLink-item" to={'/about'}>About</Link>
+                <Link className="navLink-item" to={'/'}>Portfolio</Link>
+                <Link className="navLink-item" to={'/bio'}>Bio</Link>
                 <Link className="navLink-item" to={'/contact'}>Contact</Link>
             </div>
             <div className="mobileNavigation d-flex d-sm-none">
@@ -26,8 +26,8 @@ const Navigation = () => {
                     <span></span>
                 </div>
                 <div className={`${menuOpen ? 'menuOpen' : 'menuClosed'} mobileNavLink`}>
-                    <Link className="mobileLink-item" to={'/'}>Work</Link>
-                    <Link className="mobileLink-item" to={'/about'}>About</Link>
+                    <Link className="mobileLink-item" to={'/'}>Portfolio</Link>
+                    <Link className="mobileLink-item" to={'/bio'}>Bio</Link>
                     <Link className="mobileLink-item" to={'/contact'}>Contact</Link>
                 </div>
             </div>

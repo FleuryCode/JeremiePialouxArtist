@@ -1,16 +1,56 @@
 .jumbotronContainer {
     overflow: hidden;
+    max-height: 100vh;
+    .heroTextContainer {
+        position: absolute;
+        top: 32vh;
+        z-index: 20;
+        left: 10vw;
+        h1 {
+            color: white;
+            font-size: 8vw;
+            font-family: 'Bebas Neue', sans-serif;
+            // Need Media Querys
+        }
+    }
     .inner {
         white-space: nowrap;
         transition: transform 0.7s;
+
     }
 
     .indicators {
         display: flex;
+        flex-direction: column;
         position: relative;
-        margin-top: -60px;
-        margin-bottom: 24px;
-        justify-content: center;
+        margin-top: -180px;
+        padding-bottom: 50%;
+        align-items: center;
+
+        .mainButton {
+            display: flex;
+            width: 24%;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            background-color: white;
+            margin-bottom: 1%;
+            z-index: 20;
+            border-radius: 20px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+            color: black;
+            text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 180%;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.7s;
+
+            &:hover {
+                background-color: #eb9e55;
+            }
+            
+        }
 
         button {
             margin: 5px;

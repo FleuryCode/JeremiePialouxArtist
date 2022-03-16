@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './jumbotron.styles.scss';
+import { Link } from "react-router-dom";
 
 export const JumbotronItem = ({ image }) => {
     return (
@@ -33,6 +34,9 @@ const Jumbotron = ({ children }) => {
     });
     return (
         <div className="jumbotronContainer">
+            <div className="heroTextContainer">
+                <h1>Hello World!</h1>
+            </div>
             <div className="inner" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
                 {
                     React.Children.map(children, (child, index) => {
@@ -41,17 +45,24 @@ const Jumbotron = ({ children }) => {
                 }
             </div>
             <div className="indicators">
-                {React.Children.map(children, (child, index) => {
-                    return (
-                        <button
-                            className={`${(index === activeIndex) ? 'active' : ''}`}
-                            onClick={() => {
-                                updateIndex(index);
-                            }}
-                        >
-                        </button>
-                    )
-                })}
+                <Link to={'/bio'} className="mainButton">
+                    Portfolio
+                </Link>
+                <div className="indicatorContainer">
+                    {React.Children.map(children, (child, index) => {
+                        return (
+                            <button
+                                className={`${(index === activeIndex) ? 'active' : ''}`}
+                                onClick={() => {
+                                    updateIndex(index);
+                                }}
+                            >
+                            </button>
+                        )
+                    })}
+
+                </div>
+
             </div>
         </div>
     );
