@@ -9,9 +9,15 @@
     top: 0;
     .logo {
         align-self: flex-start;
-        h3 {
-            margin: 0;
-        }
+
+        .logoNav {
+            text-decoration: none;
+            h3 {
+                margin: 0;
+                text-decoration: none;
+                color: black;
+            }
+        }  
     }
     .mainNavigation {
         display: flex;

@@ -11,7 +11,9 @@ const Navigation = () => {
     return (
         <nav className="navigationContainer p-4">
             <div className="logo me-auto">
-                <h3>Jeremie Pialoux</h3>
+                <Link className="logoNav" to={'/'}>
+                    <h3>Jeremie Pialoux</h3>
+                </Link>
             </div>
             <div className="mainNavigation d-none d-sm-flex">
                 <Link className="navLink-item" to={'/'}>Portfolio</Link>
