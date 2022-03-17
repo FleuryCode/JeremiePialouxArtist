@@ -12,7 +12,7 @@ const Navigation = () => {
         <nav className="navigationContainer p-4">
             <div className="logo me-auto">
                 <Link className="logoNav" to={'/'}>
-                    <h3>Jeremie Pialoux</h3>
+                    <h3>Jérémie Pialoux</h3>
                 </Link>
             </div>
             <div className="mainNavigation d-none d-sm-flex">
