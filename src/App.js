@@ -12,7 +12,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route exact path='/' element={<HomePage />} />
-        <Route exact path='about' element={<AboutPage />} />
+        <Route exact path='bio' element={<AboutPage />} />
         <Route exact path='contact' element={<ContactPage />} />
       </Routes>
     </div>
