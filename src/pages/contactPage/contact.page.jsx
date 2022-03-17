@@ -1,4 +1,5 @@
 import React from "react";
+import CustomButton from "../../components/customButton/customButton.component";
 import CustomInput from "../../components/customInput/customInput.component";
 import CustomTextArea from "../../components/customTextArea/customTextArea.component";
 import './contact.styles.scss';
@@ -18,6 +19,9 @@ const ContactPage = () => {
                 </div>
                 <div className="col-12">
                     <CustomTextArea id={'message'} name={'message'} placeholder={'MESSAGE'} />
+                </div>
+                <div className="col-4">
+                    <CustomButton text={'ENVOYER'} />
                 </div>
             </form>
         </div>
