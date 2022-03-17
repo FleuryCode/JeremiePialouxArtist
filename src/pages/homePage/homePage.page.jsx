@@ -41,6 +41,11 @@ const HomePage = ({ setImageNames }) => {
                     </Jumbotron>
                 </div>
             </div>
+            <div className="row p-0">
+                <div className="col-12 p-0">
+                    <PortfolioContainer />
+                </div>
+            </div>
         </div>
     );
 }
