@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import './portfolioContainer.styles.scss';
-import { doc, setDoc } from 'firebase/firestore';
-import { db, storage } from '../../firebase/firebase.utils';
+import { storage } from '../../firebase/firebase.utils';
 import { connect } from "react-redux";
 import { setImagesDownloading, setImagesUrls } from "../../redux/portfolio/portfolio.actions";
 import { getDownloadURL, ref } from "firebase/storage";
-import { async } from "@firebase/util";
 import ImageLoading from "../imagesLoading/imageLoading.component";
 import PortfolioImage from "../portfolioImage/portfolioImage.component";
 
-const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImagesDownloading, setImagesUrls }) => {
+const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, imageData, setImagesDownloading, setImagesUrls }) => {
 
+    console.log(imageData);
+    // Image Data Now Available.
     const getImageUrl = async () => {
         let imageUrls = [];
         for (let i = 0; i < imageNames.length; i++) {
@@ -31,7 +31,7 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImag
 
     useEffect(() => {
         getImageUrl();
-    });
+    }, [imageNames]);
 
 
     return (
@@ -67,7 +67,8 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImag
 const mapStateToProps = (state) => ({
     imageNames: state.portfolio.imageNames,
     imagesDownloading: state.portfolio.imagesDownloading,
-    imagesUrls: state.portfolio.imagesUrls
+    imagesUrls: state.portfolio.imagesUrls,
+    imageData: state.portfolio.imageData
 });
 
 const mapDispatchToProps = (dispatch) => ({

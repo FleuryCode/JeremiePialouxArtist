@@ -1,45 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PortfolioContainer from "../../components/portfolioContainer/portfolioContainer.component";
 import { useLocation } from 'react-router-dom'
 import './homePage.styles.scss';
-import { db } from "../../firebase/firebase.utils";
-import { doc, onSnapshot } from "firebase/firestore";
-import { connect } from "react-redux";
-import { setImageNames } from "../../redux/portfolio/portfolio.actions";
 import Jumbotron, { JumbotronItem } from "../../components/jumbotron/jumbotron.component";
 import testImageOne from '../../assets/testImageOne.jpg';
 import testImageTwo from '../../assets/testImageTwo.jpeg';
 import testImageThree from '../../assets/testImageThree.jpeg';
 
-const HomePage = ({ setImageNames }) => {
+const HomePage = () => {
     const location = useLocation();
-    useEffect(()=> {
+    useEffect(() => {
         if (location.hash) {
             let elem = document.getElementById(location.hash.slice(1))
             if (elem) {
-                elem.scrollIntoView({behavior: "smooth"})
+                elem.scrollIntoView({ behavior: "smooth" })
             }
         } else {
-        window.scrollTo({top:0 ,left:0, behavior: "smooth"})
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         };
-}, [location,])
-    const dataArray = onSnapshot(doc(db, 'Portfolio', 'MainPortfolio'), (doc) => {
-        const data = doc.data().images;
-        // Organizing based on ID.
-        data.sort((a, b) => {
-            return a.id - b.id;
-        });
-        let imageNameArray = [];
-        data.forEach((image) => {
-            imageNameArray.push(image.imageName);
-        });
-        setImageNames(imageNameArray);
-
-    });
-
-    useEffect(() => {
-        dataArray();
-    });
+    }, [location]);
 
 
     return (
@@ -68,8 +47,4 @@ const HomePage = ({ setImageNames }) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    setImageNames: imageNameArray => dispatch(setImageNames(imageNameArray))
-});
-
-export default connect(null, mapDispatchToProps)(HomePage);
+export default HomePage;

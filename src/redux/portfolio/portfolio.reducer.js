@@ -3,11 +3,12 @@ import { PortfolioTypes } from "./portfolio.types";
 const INITIAL_STATE = {
     imageNames: [],
     imagesDownloading: true,
-    imagesUrls: []
+    imagesUrls: [],
+    imageData: []
 };
 
 const portfolioReducer = (state = INITIAL_STATE, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case PortfolioTypes.SET_IMAGE_NAMES:
             return {
                 ...state,
@@ -22,6 +23,11 @@ const portfolioReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 imagesUrls: action.payload
+            };
+        case PortfolioTypes.SET_IMAGE_DATA:
+            return {
+                ...state,
+                imageData: action.payload
             };
         default:
             return state;
