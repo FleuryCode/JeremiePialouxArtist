@@ -16,7 +16,7 @@ const Navigation = () => {
                 </Link>
             </div>
             <div className="mainNavigation d-none d-sm-flex">
-                <Link className="navLink-item" to={'/'}>Portfolio</Link>
+                <Link className="navLink-item" to={'/#portfolio'}>Portfolio</Link>
                 <Link className="navLink-item" to={'/bio'}>Bio</Link>
                 <Link className="navLink-item" to={'/contact'}>Contact</Link>
             </div>

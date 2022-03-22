@@ -36,6 +36,9 @@ const Jumbotron = ({ children }) => {
         <div className="jumbotronContainer">
             <div className="heroTextContainer">
                 <h1>Hello World!</h1>
+                <Link to={'/bio'} className="mainButton">
+                    Portfolio
+                </Link>
             </div>
             <div className="inner" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
                 {
@@ -45,9 +48,6 @@ const Jumbotron = ({ children }) => {
                 }
             </div>
             <div className="indicators">
-                <Link to={'/bio'} className="mainButton">
-                    Portfolio
-                </Link>
                 <div className="indicatorContainer">
                     {React.Children.map(children, (child, index) => {
                         return (
@@ -62,7 +62,6 @@ const Jumbotron = ({ children }) => {
                     })}
 
                 </div>
-
             </div>
         </div>
     );

@@ -11,47 +11,6 @@ import PortfolioImage from "../portfolioImage/portfolioImage.component";
 
 const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImagesDownloading, setImagesUrls }) => {
 
-    // For Future Ref
-    // const testData = {
-    //     images: [
-    //         {
-    //             id: 4,
-    //             imageName: 'jdf_20191013_183658_edit_web.jpg'
-    //         },
-    //         {
-    //             id: 2,
-    //             imageName: 'jdf_20191013_183713_edit_web.jpg'
-    //         },
-    //         {
-    //             id: 3,
-    //             imageName: 'jdf_20191013_183725_edit_web.jpg'
-    //         },
-    //         {
-    //             id: 1,
-    //             imageName: 'jdf_20191017_133744_edit_web.jpg'
-    //         },
-    //         {
-    //             id: 5,
-    //             imageName: 'jdf_20191017_134035_edit_web.jpg'
-    //         },
-    //         {
-    //             id: 6,
-    //             imageName: 'jdf_20191017_133744_edit_web.jpg'
-    //         }
-    //     ]
-    // };
-
-    // const setData = async () => {
-    //     await setDoc(doc(db, 'Portfolio', 'MainPortfolio'), testData)
-    //         .then(() => {
-    //             console.log('Completed');
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }
-
-
     const getImageUrl = async () => {
         let imageUrls = [];
         for (let i = 0; i < imageNames.length; i++) {
@@ -77,6 +36,11 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImag
 
     return (
         <div className="mainPortfolioContainer container-fluid p-0 m-0">
+            <div className="row p-0 m-0">
+                <div className="col-12 d-flex justify-content-center my-3">
+                    <h1>PORTFOLIO</h1>
+                </div>
+            </div>
             <div className={`${imagesDownloading ? 'd-flex justify-content-center' : 'd-none'} row py-3 px-0 m-0`}>
                 {
                     imageNames.map(name => (
@@ -89,7 +53,7 @@ const PortfolioContainer = ({ imageNames, imagesDownloading, imagesUrls, setImag
             <div className={`${imagesDownloading ? 'd-none' : 'd-flex'} row py-3 px-0 m-0`}>
                 {
                     imagesUrls.map(url => (
-                        <div key={url} className="col-12 col-lg-4 p-0 m-0">
+                        <div key={url} className="col-12 col-md-6 col-lg-4 p-0 m-0">
                             <PortfolioImage image={url} />
                         </div>
                     ))

@@ -7,7 +7,7 @@ import './contact.styles.scss';
 const ContactPage = () => {
     return (
         <div className="contactPageContainer container-fluid">
-            <form className="row">
+            <form className="row p-4">
                 <div className="col-12 col-md-6">
                     <CustomInput id={'nom'} type={'text'} name={'nom'} placeholder={'NOM'} />
                 </div>

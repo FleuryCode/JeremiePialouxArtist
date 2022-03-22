@@ -4,7 +4,7 @@
     .heroTextContainer {
         position: absolute;
         top: 32vh;
-        z-index: 20;
+        z-index: 10;
         left: 10vw;
         h1 {
             color: white;
@@ -12,30 +12,15 @@
             font-family: 'Bebas Neue', sans-serif;
             // Need Media Querys
         }
-    }
-    .inner {
-        white-space: nowrap;
-        transition: transform 0.7s;
-
-    }
-
-    .indicators {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin-top: -180px;
-        padding-bottom: 50%;
-        align-items: center;
-
         .mainButton {
             display: flex;
-            width: 24%;
+            width: 75%;
             justify-content: center;
             align-items: center;
             height: 60px;
             background-color: white;
             margin-bottom: 1%;
-            z-index: 20;
+            z-index: 10;
             border-radius: 20px;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
             color: black;
@@ -49,8 +34,21 @@
             &:hover {
                 background-color: #eb9e55;
             }
-            
         }
+    }
+    .inner {
+        white-space: nowrap;
+        transition: transform 0.7s;
+
+    }
+
+    .indicators {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: -60px;
+        padding-bottom: 50%;
+        align-items: center;
 
         button {
             margin: 5px;
