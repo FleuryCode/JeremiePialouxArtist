@@ -6,6 +6,7 @@ import AboutPage from './pages/aboutPage/about.page';
 import ContactPage from './pages/contactPage/contact.page';
 import Navigation from './components/navigation/navigation.component';
 import PortfolioPage from './pages/portfolioPage/portfolio.page';
+import PortfolioPiece from './components/portfolioPiece/portfolioPiece.component';
 // Redux
 import { setImageData, setImagesUrls, setImagesDownloading } from './redux/portfolio/portfolio.actions';
 import { connect } from 'react-redux';
@@ -14,6 +15,7 @@ import { getDownloadURL, ref } from "firebase/storage";
 import { db, storage } from "./firebase/firebase.utils";
 import { doc, onSnapshot } from "firebase/firestore";
 import firebaseApp from './firebase/firebase.utils';
+
 
 
 function App({ setImagesUrls, setImageData, setImagesDownloading }) {
@@ -61,9 +63,8 @@ function App({ setImagesUrls, setImageData, setImagesDownloading }) {
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='bio' element={<AboutPage />} />
         <Route exact path='contact' element={<ContactPage />} />
-        <Route path='portfolio' element={<PortfolioPage />}>
-          <Route path=':portfolioImage' element={<AboutPage />} />
-        </Route>
+        <Route exact path='portfolio' element={<PortfolioPage />} />
+        <Route path='portfolio/:portfolioImage' element={<PortfolioPiece />} />
       </Routes>
     </div>
   );
