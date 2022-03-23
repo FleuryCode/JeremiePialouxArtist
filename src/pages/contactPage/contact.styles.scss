@@ -3,9 +3,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     .row {
         width: 100%;
         padding: 0 5%;
+    }
+
+    h1 {
+        border-bottom: 2px solid #FAA44F;
+        padding: 0.5% 1%;
     }
 }
