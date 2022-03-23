@@ -33,9 +33,9 @@ const HomePage = () => {
                 </div>
             </div>
             <div className="row p-0 mt-4">
-                <div className="col-12 p-5">
+                <div className="col-8 d-flex flex-column p-5 mx-auto">
                     <h4 className="px-5">Mon Art</h4>
-                    <p className="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eos nisi culpa nam perferendis, ullam magni ab facilis delectus explicabo, ex fuga impedit ratione dolore odio. Quo sapiente vel sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptate, voluptatem eveniet consequuntur iusto veritatis officiis corporis nam ab, autem, ipsa nisi. Illum quaerat repellat beatae aperiam doloribus. Natus, tempore? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nisi dolores excepturi ex aliquid ut beatae, praesentium esse nobis molestiae tempore deserunt itaque, architecto, nihil consectetur unde sapiente eum repellat.</p>
+                    <h5 className="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eos nisi culpa nam perferendis, ullam magni ab facilis delectus explicabo, ex fuga impedit ratione dolore odio. Quo sapiente vel sed? Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita voluptate, voluptatem eveniet consequuntur iusto veritatis officiis corporis nam ab, autem, ipsa nisi. Illum quaerat repellat beatae aperiam doloribus. Natus, tempore? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nisi dolores excepturi ex aliquid ut beatae, praesentium esse nobis molestiae tempore deserunt itaque, architecto, nihil consectetur unde sapiente eum repellat.</h5>
                 </div>
             </div>
             <div id="portfolio" className="row p-0">
