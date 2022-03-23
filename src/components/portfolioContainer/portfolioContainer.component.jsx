@@ -11,7 +11,7 @@ const PortfolioContainer = ({ imagesDownloading, imagesUrls, imageData }) => {
         <div className="mainPortfolioContainer container-fluid p-0 m-0">
             <div className="row p-0 m-0">
                 <div className="col-12 d-flex justify-content-center my-3">
-                    <h1>PORTFOLIO</h1>
+                    <h2>PORTFOLIO</h2>
                 </div>
             </div>
             <div className={`${imagesDownloading ? 'd-flex justify-content-center' : 'd-none'} row py-3 px-0 m-0`}>
