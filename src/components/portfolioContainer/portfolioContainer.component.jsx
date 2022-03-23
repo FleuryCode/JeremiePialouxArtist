@@ -25,9 +25,9 @@ const PortfolioContainer = ({ imagesDownloading, imagesUrls, imageData }) => {
             </div>
             <div className={`${imagesDownloading ? 'd-none' : 'd-flex'} row py-3 px-0 m-0`}>
                 {
-                    imagesUrls.map(url => (
+                    imagesUrls.map((url, index) => (
                         <div key={url} className="col-12 col-md-6 col-lg-4 p-0 m-0">
-                            <PortfolioImage image={url} />
+                            <PortfolioImage image={url} data={imageData[index]} />
                         </div>
                     ))
                 }
