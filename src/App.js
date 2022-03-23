@@ -5,13 +5,32 @@ import HomePage from './pages/homePage/homePage.page';
 import AboutPage from './pages/aboutPage/about.page';
 import ContactPage from './pages/contactPage/contact.page';
 import Navigation from './components/navigation/navigation.component';
-import { setImageNames, setImageData } from './redux/portfolio/portfolio.actions';
+// Redux
+import { setImageData, setImagesUrls, setImagesDownloading } from './redux/portfolio/portfolio.actions';
 import { connect } from 'react-redux';
-import { db } from "./firebase/firebase.utils";
+// Firebase
+import { getDownloadURL, ref } from "firebase/storage";
+import { db, storage } from "./firebase/firebase.utils";
 import { doc, onSnapshot } from "firebase/firestore";
 import firebaseApp from './firebase/firebase.utils';
 
-function App({ setImageNames, setImageData }) {
+function App({ setImagesUrls, setImageData, setImagesDownloading }) {
+
+  const getImageUrls = async (imageDataArray) => {
+    let imageUrls = [];
+    for (let i = 0; i < imageDataArray.length; i++) {
+      await getDownloadURL(ref(storage, `Portfolio/${imageDataArray[i].imageName}`))
+      .then((url) => {
+        imageUrls.push(url);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      
+    };
+    setImagesUrls(imageUrls);
+    setImagesDownloading(false);
+  };
 
   const dataArray = onSnapshot(doc(db, 'Portfolio', 'MainPortfolio'), (doc) => {
     const data = doc.data().images;
@@ -19,20 +38,19 @@ function App({ setImageNames, setImageData }) {
     data.sort((a, b) => {
       return a.id - b.id;
     });
-    let imageNameArray = [];
     let imageDataArray = [];
     data.forEach((image) => {
-      imageNameArray.push(image.imageName);
       imageDataArray.push(image);
     });
-    setImageNames(imageNameArray);
     setImageData(imageDataArray);
+    getImageUrls(imageDataArray);
 
   });
 
   useEffect(() => {
     dataArray();
   });
+
 
   return (
     <div className="App">
@@ -47,7 +65,8 @@ function App({ setImageNames, setImageData }) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setImageNames: imageNameArray => dispatch(setImageNames(imageNameArray)),
+  setImagesDownloading: imagesDownloading => dispatch(setImagesDownloading(imagesDownloading)),
+  setImagesUrls: urlsArray => dispatch(setImagesUrls(urlsArray)),
   setImageData: imageDataArray => dispatch(setImageData(imageDataArray))
 });
 
