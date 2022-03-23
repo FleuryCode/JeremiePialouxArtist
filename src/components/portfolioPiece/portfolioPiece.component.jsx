@@ -40,7 +40,7 @@ const PortfolioPiece = ({ imageData }) => {
 
 
     return (
-        <div className="portfolioPieceContainer container-fluid">
+        <div className="portfolioPieceContainer container-fluid p-4">
             <div className="row">
                 <div className="col-12 d-flex justify-content-center mb-4">
                     <h1>{data.title}</h1>
