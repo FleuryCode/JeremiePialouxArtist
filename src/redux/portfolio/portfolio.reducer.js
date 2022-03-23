@@ -1,7 +1,6 @@
 import { PortfolioTypes } from "./portfolio.types";
 
 const INITIAL_STATE = {
-    imageNames: [],
     imagesDownloading: true,
     imagesUrls: [],
     imageData: []
@@ -9,11 +8,6 @@ const INITIAL_STATE = {
 
 const portfolioReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case PortfolioTypes.SET_IMAGE_NAMES:
-            return {
-                ...state,
-                imageNames: action.payload
-            };
         case PortfolioTypes.SET_IMAGES_DOWNLOADING:
             return {
                 ...state,
