@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import './specificPortfolioImages.styles.scss';
 
 const SpecificPortfolioImages = ({ images }) => {
-    console.log(images)
     const [activeImage, setActiveImage] = useState(0);
     const handleIconClick = (index) => {
         setActiveImage(index);
