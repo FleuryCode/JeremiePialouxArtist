@@ -24,7 +24,7 @@ const HomePage = () => {
     return (
         <div className="homepageContainer container-fluid">
             <div className="row">
-                <div className="col-12 p-0">
+                <div className="col-12 p-0 d-flex justify-content-center">
                     <Jumbotron>
                         <JumbotronItem image={testImageOne} />
                         <JumbotronItem image={testImageTwo} />
