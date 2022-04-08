@@ -13,47 +13,60 @@ import { connect } from 'react-redux';
 // Firebase
 import { getDownloadURL, ref } from "firebase/storage";
 import { db, storage } from "./firebase/firebase.utils";
-import { doc, onSnapshot } from "firebase/firestore";
+import { collection, doc, onSnapshot, query } from "firebase/firestore";
 import firebaseApp from './firebase/firebase.utils';
 
 
 
 function App({ setImagesUrls, setImageData, setImagesDownloading }) {
+  const portfolioQuery = query(collection(db, 'Portfolio'));
+    const getPortfolioData = onSnapshot(portfolioQuery, (querySnapshot) => {
+      const portfolioData = [];
+      querySnapshot.forEach((doc) => {
+        portfolioData.push(doc.data());
+      });
+      // Sorting based on ID
+      portfolioData.sort((a, b) => {
+        return a.id - b.id
+      });
+      getImageUrls(portfolioData);
+    });
 
   const getImageUrls = async (imageDataArray) => {
-    let imageUrls = [];
     for (let i = 0; i < imageDataArray.length; i++) {
       await getDownloadURL(ref(storage, `Portfolio/${imageDataArray[i].imageName}`))
         .then((url) => {
-          imageUrls.push(url);
+          imageDataArray[i].src = url;
         })
         .catch((error) => {
           console.log(error);
         });
 
     };
-    setImagesUrls(imageUrls);
+    setImageData(imageDataArray);
     setImagesDownloading(false);
   };
 
-  const dataArray = onSnapshot(doc(db, 'Portfolio', 'MainPortfolio'), (doc) => {
-    const data = doc.data().images;
-    // Organizing based on ID.
-    data.sort((a, b) => {
-      return a.id - b.id;
-    });
-    let imageDataArray = [];
-    data.forEach((image) => {
-      imageDataArray.push(image);
-    });
-    setImageData(imageDataArray);
-    getImageUrls(imageDataArray);
 
-  });
+    
+
+    // const data = doc.data();
+    // console.log(data);
+    // // Organizing based on ID.
+    // data.sort((a, b) => {
+    //   return a.id - b.id;
+    // });
+    // let imageDataArray = [];
+    // data.forEach((image) => {
+    //   imageDataArray.push(image);
+    // });
+    // setImageData(imageDataArray);
+    // getImageUrls(imageDataArray);
+
 
   useEffect(() => {
-    dataArray();
-  });
+    getPortfolioData();
+  }, []);
 
 
   return (
