@@ -5,11 +5,6 @@ export const setImagesDownloading = (imagesDownloading) => ({
     payload: imagesDownloading
 });
 
-export const setImagesUrls = (imageUrlArray) => ({
-    type: PortfolioTypes.SET_IMAGES_URLS,
-    payload: imageUrlArray
-});
-
 export const setImageData = (imageData) => ({
     type: PortfolioTypes.SET_IMAGE_DATA,
     payload: imageData

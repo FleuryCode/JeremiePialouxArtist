@@ -8,17 +8,17 @@ import Navigation from './components/navigation/navigation.component';
 import PortfolioPage from './pages/portfolioPage/portfolio.page';
 import PortfolioPiece from './components/portfolioPiece/portfolioPiece.component';
 // Redux
-import { setImageData, setImagesUrls, setImagesDownloading } from './redux/portfolio/portfolio.actions';
+import { setImageData, setImagesDownloading } from './redux/portfolio/portfolio.actions';
 import { connect } from 'react-redux';
 // Firebase
 import { getDownloadURL, ref } from "firebase/storage";
 import { db, storage } from "./firebase/firebase.utils";
-import { collection, doc, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 import firebaseApp from './firebase/firebase.utils';
 
 
 
-function App({ setImagesUrls, setImageData, setImagesDownloading }) {
+function App({ setImageData, setImagesDownloading }) {
   const portfolioQuery = query(collection(db, 'Portfolio'));
     const getPortfolioData = onSnapshot(portfolioQuery, (querySnapshot) => {
       const portfolioData = [];
@@ -47,27 +47,9 @@ function App({ setImagesUrls, setImageData, setImagesDownloading }) {
     setImagesDownloading(false);
   };
 
-
-    
-
-    // const data = doc.data();
-    // console.log(data);
-    // // Organizing based on ID.
-    // data.sort((a, b) => {
-    //   return a.id - b.id;
-    // });
-    // let imageDataArray = [];
-    // data.forEach((image) => {
-    //   imageDataArray.push(image);
-    // });
-    // setImageData(imageDataArray);
-    // getImageUrls(imageDataArray);
-
-
   useEffect(() => {
     getPortfolioData();
   }, []);
-
 
   return (
     <div className="App">
@@ -85,7 +67,6 @@ function App({ setImagesUrls, setImageData, setImagesDownloading }) {
 
 const mapDispatchToProps = (dispatch) => ({
   setImagesDownloading: imagesDownloading => dispatch(setImagesDownloading(imagesDownloading)),
-  setImagesUrls: urlsArray => dispatch(setImagesUrls(urlsArray)),
   setImageData: imageDataArray => dispatch(setImageData(imageDataArray))
 });
 
