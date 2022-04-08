@@ -9,16 +9,19 @@ import PortfolioPage from './pages/portfolioPage/portfolio.page';
 import PortfolioPiece from './components/portfolioPiece/portfolioPiece.component';
 // Redux
 import { setImageData, setImagesDownloading } from './redux/portfolio/portfolio.actions';
+import { setTextData } from './redux/text/text.actions';
 import { connect } from 'react-redux';
 // Firebase
 import { getDownloadURL, ref } from "firebase/storage";
 import { db, storage } from "./firebase/firebase.utils";
-import { collection, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, query, doc } from "firebase/firestore";
 import firebaseApp from './firebase/firebase.utils';
 
 
 
-function App({ setImageData, setImagesDownloading }) {
+function App({ setImageData, setImagesDownloading, setTextData }) {
+
+  // Portfolio Data
   const portfolioQuery = query(collection(db, 'Portfolio'));
     const getPortfolioData = onSnapshot(portfolioQuery, (querySnapshot) => {
       const portfolioData = [];
@@ -47,8 +50,14 @@ function App({ setImageData, setImagesDownloading }) {
     setImagesDownloading(false);
   };
 
+  // Text Data
+  const getTextData = onSnapshot(doc(db, 'Text', 'textData'), (doc) => {
+    setTextData(doc.data());
+  });
+
   useEffect(() => {
     getPortfolioData();
+    getTextData();
   }, []);
 
   return (
@@ -67,7 +76,8 @@ function App({ setImageData, setImagesDownloading }) {
 
 const mapDispatchToProps = (dispatch) => ({
   setImagesDownloading: imagesDownloading => dispatch(setImagesDownloading(imagesDownloading)),
-  setImageData: imageDataArray => dispatch(setImageData(imageDataArray))
+  setImageData: imageDataArray => dispatch(setImageData(imageDataArray)),
+  setTextData: textInfo => dispatch(setTextData(textInfo))
 });
 
 export default connect(null, mapDispatchToProps)(App);
