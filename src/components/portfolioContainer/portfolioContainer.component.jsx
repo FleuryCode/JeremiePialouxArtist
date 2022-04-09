@@ -6,7 +6,6 @@ import PortfolioImage from "../portfolioImage/portfolioImage.component";
 import { connect } from "react-redux";
 
 const PortfolioContainer = ({ imagesDownloading, imageData }) => {
-    console.log(imageData);
 
     return (
         <div className="mainPortfolioContainer container-fluid p-0 m-0">
@@ -14,15 +13,6 @@ const PortfolioContainer = ({ imagesDownloading, imageData }) => {
                 <div className="col-12 d-flex justify-content-center my-3">
                     <h2>PORTFOLIO</h2>
                 </div>
-            </div>
-            <div className={`${imagesDownloading ? 'd-flex justify-content-center' : 'd-none'} row py-3 px-0 m-0`}>
-                {
-                    imageData.map(image => (
-                        <div key={image.id} className="col-12 col-md-6">
-                            <ImageLoading />
-                        </div>
-                    ))
-                }
             </div>
             <div className={`${imagesDownloading ? 'd-none' : 'd-flex'} row py-3 px-0 m-0 portfolioImagesHolder`}>
                 {
