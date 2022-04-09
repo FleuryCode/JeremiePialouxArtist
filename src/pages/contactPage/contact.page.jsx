@@ -10,12 +10,21 @@ import Recaptcha from "react-google-recaptcha/lib/recaptcha";
 
 const ContactPage = () => {
     const [recaptchaToken, setRecaptchaToken] = useState('');
+    // Message Data
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
     // Recaptcha
     const recaptchaRef = React.useRef();
     const recaptchaKey = KEYS.Recaptcha_Token;
     const updateRecaptcha = (token) => {
         setRecaptchaToken(token);
     }; 
+    // FormSpark
+    const formSparkId = KEYS.Formspark_ID;
+    const formSparkUrl = `https://submit-form.com/${formSparkId}`;
 
     
 
