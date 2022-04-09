@@ -10,6 +10,7 @@ import Recaptcha from "react-google-recaptcha/lib/recaptcha";
 
 const ContactPage = () => {
     const [recaptchaToken, setRecaptchaToken] = useState('');
+    const [messageSending, setMessageSending] = useState(false);
     // Message Data
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
