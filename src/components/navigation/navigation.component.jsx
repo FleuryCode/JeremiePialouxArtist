@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './navigation.styles.scss';
 
 const Navigation = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     const mobileMenuClick = () => {
         setMenuOpen(!menuOpen);
     };
+
+    // Scroll Event to Change Style
+    useEffect(() => {
+        document.addEventListener('scroll', () => {
+            const scrollCheck = window.scrollY > 150;
+            setScrolled(scrollCheck);
+        });
+    }, []);
+
     return (
-        <nav className="navigationContainer p-4">
+        <nav id="mainNav" className="navigationContainer p-4">
             <div className="logo me-auto">
                 <Link className="logoNav" to={'/'}>
-                    <h3>Jérémie Pialoux</h3>
+                    <h3 className={scrolled ? 'scrolled' : ''}>Jérémie Pialoux</h3>
                 </Link>
             </div>
             <div className="mainNavigation d-none d-sm-flex">
