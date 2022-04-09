@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import './contact.styles.scss';
 import CustomButton from "../../components/customButton/customButton.component";
 import CustomInput from "../../components/customInput/customInput.component";
 import CustomTextArea from "../../components/customTextArea/customTextArea.component";
-import './contact.styles.scss';
+import ReCAPTCHA from "react-google-recaptcha";
+import { KEYS } from "../../Keys";
+import Recaptcha from "react-google-recaptcha/lib/recaptcha";
+
 
 const ContactPage = () => {
+    const [recaptchaToken, setRecaptchaToken] = useState('');
+    // Recaptcha
+    const recaptchaRef = React.useRef();
+    const recaptchaKey = KEYS.Recaptcha_Token;
+    const updateRecaptcha = (token) => {
+        setRecaptchaToken(token);
+    }; 
+
+    
+
+
     return (
         <div className="contactPageContainer container-fluid">
             <div className="row">
@@ -24,6 +39,13 @@ const ContactPage = () => {
                 </div>
                 <div className="col-12">
                     <CustomTextArea id={'message'} name={'message'} placeholder={'MESSAGE'} />
+                </div>
+                <div className="col-8">
+                    <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={recaptchaKey}
+                    onChange={updateRecaptcha}
+                    />
                 </div>
                 <div className="col-4">
                     <CustomButton text={'ENVOYER'} />
