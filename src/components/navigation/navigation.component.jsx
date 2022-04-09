@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import './navigation.styles.scss';
+import { Link } from "react-router-dom";
+import { ReactComponent as InstagramIcon } from '../../assets/instagramIcon.svg';
 
 const Navigation = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ const Navigation = () => {
     }, []);
 
     return (
-        <nav id="mainNav" className="navigationContainer p-4">
+        <nav className="navigationContainer p-4">
             <div className="logo me-auto">
                 <Link className="logoNav" to={'/'}>
                     <h3 className={scrolled ? 'scrolled' : ''}>Jérémie Pialoux</h3>
@@ -29,14 +30,19 @@ const Navigation = () => {
                 <Link className="navLink-item" to={'/#portfolio'}>Portfolio</Link>
                 <Link className="navLink-item" to={'/bio'}>Bio</Link>
                 <Link className="navLink-item" to={'/contact'}>Contact</Link>
+                <a href="#"><InstagramIcon className="instaLogo" /></a>
             </div>
             <div className="mobileNavigation d-flex d-sm-none">
-                <div onClick={mobileMenuClick} className={`${menuOpen ? 'open' : ''} burgerMenu`}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div className="menuContainer">
+                    <a href="#"><InstagramIcon className="instaLogo" /></a>
+                    <div onClick={mobileMenuClick} className={`${menuOpen ? 'open' : ''} burgerMenu`}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
+
                 <div className={`${menuOpen ? 'menuOpen' : 'menuClosed'} mobileNavLink`}>
                     <Link className="mobileLink-item" to={'/'}>Portfolio</Link>
                     <Link className="mobileLink-item" to={'/bio'}>Bio</Link>
