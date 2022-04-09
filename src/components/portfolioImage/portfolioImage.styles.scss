@@ -4,13 +4,19 @@
     display: flex;
     justify-content: center;
     padding: 4%;
-    margin-bottom: 2%;
 
-    img {
-        height: 100%;
-        max-width: 100%;
-        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
-        object-fit: cover;
-        cursor: pointer;
+    .portfolioImageLink {
+        display: flex;
+        justify-content: center;
+        max-height: 100%;
+        img {
+            height: 100%;
+            max-width: 100%;
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+            object-fit: cover;
+            cursor: pointer;
+        }
     }
+
+    
 }
