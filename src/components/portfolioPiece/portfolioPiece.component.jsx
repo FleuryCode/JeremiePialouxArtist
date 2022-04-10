@@ -12,9 +12,11 @@ const PortfolioPiece = ({ imageData }) => {
     const [images, setImages] = useState([]);
     const location = useLocation().pathname;
     let data = {}
+    let dataIndex = 0;
     for (let i = 0; i < imageData.length; i++) {
         if (location === `/portfolio/${imageData[i].link}`) {
             data = imageData[i];
+            dataIndex = i;
         }
     };
 
@@ -39,10 +41,11 @@ const PortfolioPiece = ({ imageData }) => {
     }, [imageData]);
 
 
+    console.log(dataIndex);
     return (
-        <div className="portfolioPieceContainer container-fluid p-4">
+        <div className="portfolioPieceContainer container-fluid p-2">
             <div className="row">
-                <div className="col-12 d-flex justify-content-center mb-4">
+                <div className="col-12 d-flex justify-content-center mb-5">
                     <h1>{data.title}</h1>
                 </div>
             </div>
@@ -50,10 +53,33 @@ const PortfolioPiece = ({ imageData }) => {
                 <div className="col-12 col-md-8">
                     <SpecificPortfolioImages images={images} />
                 </div>
-                <div className="col-12 col-md-4 p-4">
-                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, illum eius. Velit ducimus harum expedita quia tempora, facilis debitis cumque eos mollitia nihil, voluptas aliquam voluptatibus consequatur quibusdam fugiat amet. Lore</h3>
+                <div className="col-12 col-md-4 pe-3 mt-5 mt-md-0">
+                    <div className="creationDateContainer mb-4">
+                        <h6>Date de Creation</h6>
+                        <h3>{data.creationDate}</h3>
+                    </div>
+                    <div className="techniqueContainer mb-4">
+                        <h6>Technique</h6>
+                        <h3>{data.technique}</h3>
+                    </div>
+                    <div className="dimensionsContainer mb-4">
+                        <h6>Dimensions</h6>
+                        <h3>{`${data.realHeight} x ${data.realWidth}`}</h3>
+                    </div>
+                    <div className="descriptionContainer mb-4">
+                        <h6>Description</h6>
+                        <h3>{data.description}</h3>
+                    </div>
                 </div>
             </div>
+            <div className="row">
+                <div className="col-12">
+                    <div className="portfolioNavigation">
+                        
+                    </div>
+                </div>
+            </div>
+            
         </div>
     );
 }
