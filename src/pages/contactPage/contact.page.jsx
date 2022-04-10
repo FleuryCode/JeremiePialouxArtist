@@ -118,7 +118,7 @@ const ContactPage = () => {
                     <CustomButton onClick={sendButtonClick} text={'ENVOYER'} messageSending={messageSending} />
                 </div>
                 <div className={`${messageSent ? 'd-flex' : 'd-none'} col-12 justify-content-center`}>
-                    <h4>{displayMessage}</h4>
+                    <h4 className="displayMessage">{displayMessage}</h4>
                 </div>
             </form>
         </div>
