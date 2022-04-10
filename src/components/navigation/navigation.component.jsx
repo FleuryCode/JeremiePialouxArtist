@@ -44,7 +44,7 @@ const Navigation = () => {
                 </div>
 
                 <div className={`${menuOpen ? 'menuOpen' : 'menuClosed'} mobileNavLink`}>
-                    <Link className="mobileLink-item" to={'/'}>Portfolio</Link>
+                    <Link className="mobileLink-item" to={'/#portfolio'}>Portfolio</Link>
                     <Link className="mobileLink-item" to={'/bio'}>Bio</Link>
                     <Link className="mobileLink-item" to={'/contact'}>Contact</Link>
                 </div>
