@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './portfolioPiece.styles.scss';
 import { useLocation } from "react-router-dom";
+import { ReactComponent as ArrowIcon } from '../../assets/arrowIcon.svg';
+import { Link } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
 // Firebase
@@ -13,6 +15,7 @@ const PortfolioPiece = ({ imageData }) => {
     const location = useLocation().pathname;
     let data = {}
     let dataIndex = 0;
+
     for (let i = 0; i < imageData.length; i++) {
         if (location === `/portfolio/${imageData[i].link}`) {
             data = imageData[i];
@@ -38,10 +41,26 @@ const PortfolioPiece = ({ imageData }) => {
 
     useEffect(() => {
         getImages();
-    }, [imageData]);
+    }, [imageData, location]);
+
+    // Prev and Next Links
+    // Prev
+    let prevLink = '';
+    if(dataIndex === 0) {
+        prevLink = imageData[imageData.length - 1].link;
+    }else {
+        prevLink = imageData[dataIndex - 1].link;
+    }
+    // Next
+    let nextLink = '';
+    if(dataIndex === imageData.length - 1) {
+        nextLink = imageData[0].link;
+    }else {
+        nextLink = imageData[dataIndex + 1].link;
+    }
 
 
-    console.log(dataIndex);
+    
     return (
         <div className="portfolioPieceContainer container-fluid p-2">
             <div className="row">
@@ -72,14 +91,25 @@ const PortfolioPiece = ({ imageData }) => {
                     </div>
                 </div>
             </div>
-            <div className="row">
+            <div className="row mt-5 mb-3">
                 <div className="col-12">
                     <div className="portfolioNavigation">
-                        
+                        <Link to={`/portfolio/${prevLink}`} className="prevContainer me-auto ms-4">
+                            <div className="prevArrow me-3">
+                                <ArrowIcon />
+                            </div>
+                            <p>Précédent</p>
+                        </Link>
+                        <Link to={`/portfolio/${nextLink}`} className="nextContainer ms-auto me-4">
+                            <p>Suivant</p>
+                            <div className="nextArrow ms-3">
+                                <ArrowIcon />
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 }

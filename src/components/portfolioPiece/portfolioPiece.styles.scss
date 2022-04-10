@@ -9,6 +9,7 @@
         justify-content: center;
         padding: 4%;
         margin-bottom: 2%;
+
         .portfolioImage {
             height: 100%;
             max-width: 100%;
@@ -20,5 +21,52 @@
         color: orange;
         width: 80px;
         height: 80px;
+    }
+
+    .portfolioNavigation {
+        display: flex;
+
+        .prevContainer {
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+
+            .prevArrow {
+                transform: rotate(180deg);
+                display: flex;
+                align-items: center;
+            }
+
+            p {
+                color: black;
+                transition: 0.4s ease-in-out;
+                margin: 0;
+
+                &:hover {
+                    color: orange;
+                }
+            }
+        }
+
+        .nextContainer {
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+
+            .nextArrow {
+                display: flex;
+                align-items: center;
+            }
+
+            p {
+                color: black;
+                margin: 0;
+                transition: 0.4s ease-in-out;
+
+                &:hover {
+                    color: orange;
+                }
+            }
+        }
     }
 }
