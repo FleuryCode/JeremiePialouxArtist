@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './jumbotron.styles.scss';
 import { Link } from "react-router-dom";
+import { useSwipeable } from "react-swipeable";
 
 export const JumbotronItem = ({ image }) => {
     return (
@@ -32,8 +33,14 @@ const Jumbotron = ({ children }) => {
             }
         }
     });
+
+    // Swipe Functions For Mobile
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: () => updateIndex(activeIndex + 1),
+        onSwipedRight: () => updateIndex(activeIndex - 1)
+    });
     return (
-        <div className="jumbotronContainer">
+        <div className="jumbotronContainer" {...swipeHandlers}>
             <div className="heroTextContainer">
                 <h1>Hello World!</h1>
                 <Link to={'/bio'} className="mainButton">
