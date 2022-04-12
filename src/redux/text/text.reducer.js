@@ -1,7 +1,8 @@
 import { TextTypes } from "./text.types";
 
 const INITIAL_STATE = {
-    textData: {}
+    textData: {},
+    language: 'FR'
 };
 
 const textReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const textReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 textData: action.payload
+            }
+        case TextTypes.SET_TEXT_LANG:
+            return {
+                ...state,
+                language: action.payload
             }
         default:
             return state;

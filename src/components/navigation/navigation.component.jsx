@@ -19,6 +19,11 @@ const Navigation = () => {
         });
     }, []);
 
+    // Language Switch
+    const onLangClick = (lang) => {
+        console.log(lang);
+    }
+
     return (
         <nav className="navigationContainer p-4">
             <div className="logo me-auto">
@@ -34,9 +39,9 @@ const Navigation = () => {
                     <a className="instaLogoContainer" href="#"><InstagramIcon className="instaLogo" /></a>
                 </div>
                 <div className="langSwitch">
-                    <h6 className="frLang">FR</h6>
+                    <h6 onClick={() => onLangClick('FR')} className="frLang">FR</h6>
                     <div>-</div>
-                    <h6 className="enLang">EN</h6>
+                    <h6 onClick={() => onLangClick('EN')} className="enLang">EN</h6>
                 </div>
             </div>
             <div className="mobileNavigation d-flex d-sm-none">
