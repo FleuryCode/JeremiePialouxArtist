@@ -39,12 +39,6 @@
             text-decoration: none;
             align-items: center;
 
-            .prevArrow {
-                transform: rotate(180deg);
-                display: flex;
-                align-items: center;
-            }
-
             p {
                 color: black;
                 transition: 0.4s ease-in-out;
@@ -60,11 +54,6 @@
             display: flex;
             text-decoration: none;
             align-items: center;
-
-            .nextArrow {
-                display: flex;
-                align-items: center;
-            }
 
             p {
                 color: black;

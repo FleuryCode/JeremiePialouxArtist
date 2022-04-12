@@ -96,16 +96,10 @@ const PortfolioPiece = ({ imageData }) => {
                 <div className="col-12">
                     <div className="portfolioNavigation">
                         <Link to={`/portfolio/${prevLink}`} className="prevContainer me-auto ms-4">
-                            <div className="prevArrow me-3">
-                                <ArrowIcon className="arrowIcon" />
-                            </div>
                             <p>Précédent</p>
                         </Link>
                         <Link to={`/portfolio/${nextLink}`} className="nextContainer ms-auto me-4">
                             <p>Suivant</p>
-                            <div className="nextArrow ms-3">
-                                <ArrowIcon className="arrowIcon" />
-                            </div>
                         </Link>
                     </div>
                 </div>
