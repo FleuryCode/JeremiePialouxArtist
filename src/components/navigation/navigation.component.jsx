@@ -30,11 +30,11 @@ const Navigation = () => {
                 <Link className="navLink-item" to={'/#portfolio'}>Portfolio</Link>
                 <Link className="navLink-item" to={'/bio'}>Bio</Link>
                 <Link className="navLink-item" to={'/contact'}>Contact</Link>
-                <a href="#"><InstagramIcon className="instaLogo" /></a>
+                <a className="instaLogoContainer" href="#"><InstagramIcon className="instaLogo" /></a>
             </div>
             <div className="mobileNavigation d-flex d-sm-none">
                 <div className="menuContainer">
-                    <a href="#"><InstagramIcon className="instaLogo" /></a>
+                    <a className="instaLogoContainer" href="#"><InstagramIcon className="instaLogo" /></a>
                     <div onClick={mobileMenuClick} className={`${menuOpen ? 'open' : ''} burgerMenu`}>
                         <span></span>
                         <span></span>
