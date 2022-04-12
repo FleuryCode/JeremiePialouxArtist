@@ -9,11 +9,6 @@ const PortfolioContainer = ({ imagesDownloading, imageData }) => {
 
     return (
         <div className="mainPortfolioContainer container-fluid p-0 m-0">
-            <div className="row p-0 m-0">
-                <div className="col-12 d-flex justify-content-center my-3">
-                    <h2>PORTFOLIO</h2>
-                </div>
-            </div>
             <div className={`${imagesDownloading ? 'd-none' : 'd-flex'} row py-3 px-0 m-0 portfolioImagesHolder`}>
                 {
                     imageData.map((image) => (

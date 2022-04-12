@@ -35,8 +35,8 @@ const HomePage = ({textData}) => {
                 </div>
             </div>
             <div className="row p-0 mt-4">
-                <div className="col-8 d-flex flex-column p-4 mx-auto">
-                    <h4 className="px-2">Mon Art</h4>
+                <div className="col-12 d-flex flex-column p-5 mx-auto">
+                    <h1 className="px-2">Mon Art</h1>
                     <h5 className="px-2">{textData.homeInfo}</h5>
                 </div>
             </div>
