@@ -9,13 +9,15 @@ import testImageOne from '../../assets/testImageOne.jpg';
 import testImageTwo from '../../assets/testImageTwo.jpeg';
 import testImageThree from '../../assets/testImageThree.jpeg';
 
-const HomePage = ({textData}) => {
+const HomePage = ({ textData }) => {
     const location = useLocation();
     useEffect(() => {
         if (location.hash) {
-            let elem = document.getElementById(location.hash.slice(1))
+            let elem = document.getElementById(location.hash.slice(1));
+            const elementPosition = elem.getBoundingClientRect().top;
+            const scrollPosition = elementPosition - 80;
             if (elem) {
-                elem.scrollIntoView({ behavior: "smooth" })
+                window.scrollTo({ top: scrollPosition, behavior: "smooth" })
             }
         } else {
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
