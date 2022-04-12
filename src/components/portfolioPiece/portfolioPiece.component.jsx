@@ -46,44 +46,45 @@ const PortfolioPiece = ({ imageData }) => {
     // Prev and Next Links
     // Prev
     let prevLink = '';
-    if(dataIndex === 0) {
+    if (dataIndex === 0) {
         prevLink = imageData[imageData.length - 1].link;
-    }else {
+    } else {
         prevLink = imageData[dataIndex - 1].link;
     }
     // Next
     let nextLink = '';
-    if(dataIndex === imageData.length - 1) {
+    if (dataIndex === imageData.length - 1) {
         nextLink = imageData[0].link;
-    }else {
+    } else {
         nextLink = imageData[dataIndex + 1].link;
     }
 
 
-    
+
     return (
         <div className="portfolioPieceContainer container-fluid p-2">
-            <div className="row">
-                <div className="col-12 d-flex justify-content-center mb-5">
-                    <h1>{data.title}</h1>
-                </div>
-            </div>
             <div className="row">
                 <div className="col-12 col-md-8">
                     <SpecificPortfolioImages images={images} />
                 </div>
-                <div className="col-12 col-md-4 pe-3 mt-5 mt-md-0">
+                <div className="col-12 col-md-4 px-4">
+                    <div className="text-center mb-4">
+                        <h1>{data.title}</h1>
+                    </div>
                     <div className="creationDateContainer mb-4">
                         <h6>Date de Creation</h6>
                         <h3>{data.creationDate}</h3>
+                        <div className="lineBreak"></div>
                     </div>
                     <div className="techniqueContainer mb-4">
                         <h6>Technique</h6>
                         <h3>{data.technique}</h3>
+                        <div className="lineBreak"></div>
                     </div>
                     <div className="dimensionsContainer mb-4">
                         <h6>Dimensions</h6>
                         <h3>{`${data.realHeight} x ${data.realWidth}`}</h3>
+                        <div className="lineBreak"></div>
                     </div>
                     <div className="descriptionContainer mb-4">
                         <h6>Description</h6>

@@ -2,6 +2,15 @@
     margin-top: 14vh;
     overflow-x: hidden;
 
+    .lineBreak {
+        width: 90%;
+        height: 1px;
+        margin: 20px 0;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
     .portfolioImageHolder {
         height: 60vh;
         width: 100%;

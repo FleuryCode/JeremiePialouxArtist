@@ -9,19 +9,18 @@ const SpecificPortfolioImages = ({ images }) => {
     return (
         <div className="specificPortfolioImagesContainer container">
             <div className="row">
-                <div className="col-12 imagePickerContainer">
+                <div className="col-12 col-md-11 imagePickerContainer">
                     <div className="heroPortfolioImage">
                         <img src={images[activeImage]} alt="" />
                     </div>
-                    <div className="portfolioImageIcons">
-                        {
-                            images.map((image, index) => (
-                                <img onClick={() => handleIconClick(index)} className={`${(activeImage === index) ? 'active' : ''}`} key={image} src={image} alt="Portfolio piece" />
-                            ))
-                        }
-                    </div>
                 </div>
-
+                <div className="col-12 col-md-1 flex-row flex-md-column portfolioImageIcons">
+                    {
+                        images.map((image, index) => (
+                            <img onClick={() => handleIconClick(index)} className={`${(activeImage === index) ? 'active' : ''}`} key={image} src={image} alt="Portfolio piece" />
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );
