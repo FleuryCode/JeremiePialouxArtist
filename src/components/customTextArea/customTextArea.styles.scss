@@ -1,14 +1,14 @@
 .customTextAreaContainer {
-    width: 100%;
-    height: 320px;
-    margin: 2% 0;
+    width: 80%;
     textarea {
         width: 100%;
         height: 100%;
-        padding: 2%;
+        padding: 1%;
         border: none;
-        background-color: rgb(238, 238, 238);
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-        border-radius: 8px;
+        border-bottom: 1px solid black;
+
+        &:focus {
+            outline: none;
+        }
     }
 }
