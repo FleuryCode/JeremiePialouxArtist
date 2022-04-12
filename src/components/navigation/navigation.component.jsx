@@ -27,10 +27,17 @@ const Navigation = () => {
                 </Link>
             </div>
             <div className="mainNavigation d-none d-sm-flex">
-                <Link className="navLink-item" to={'/#portfolio'}>Portfolio</Link>
-                <Link className="navLink-item" to={'/bio'}>Bio</Link>
-                <Link className="navLink-item" to={'/contact'}>Contact</Link>
-                <a className="instaLogoContainer" href="#"><InstagramIcon className="instaLogo" /></a>
+                <div className="navItemHolder">
+                    <Link className="navLink-item" to={'/#portfolio'}>Portfolio</Link>
+                    <Link className="navLink-item" to={'/bio'}>Bio</Link>
+                    <Link className="navLink-item" to={'/contact'}>Contact</Link>
+                    <a className="instaLogoContainer" href="#"><InstagramIcon className="instaLogo" /></a>
+                </div>
+                <div className="langSwitch">
+                    <h6 className="frLang">FR</h6>
+                    <div>-</div>
+                    <h6 className="enLang">EN</h6>
+                </div>
             </div>
             <div className="mobileNavigation d-flex d-sm-none">
                 <div className="menuContainer">
