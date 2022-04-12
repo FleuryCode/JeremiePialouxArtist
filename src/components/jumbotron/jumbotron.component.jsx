@@ -5,9 +5,9 @@ import { useSwipeable } from "react-swipeable";
 
 export const JumbotronItem = ({ image }) => {
     return (
-        <div className="jumbotronItemContainer" style={{ backgroundImage: `url(${image})` }}>
+        <Link to={'/bio'} className="jumbotronItemContainer" style={{ backgroundImage: `url(${image})` }}>
 
-        </div>
+        </Link>
     );
 }
 
@@ -41,12 +41,6 @@ const Jumbotron = ({ children }) => {
     });
     return (
         <div className="jumbotronContainer" {...swipeHandlers}>
-            <div className="heroTextContainer">
-                <h1>Hello World!</h1>
-                <Link to={'/bio'} className="mainButton">
-                    Portfolio
-                </Link>
-            </div>
             <div className="inner" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
                 {
                     React.Children.map(children, (child, index) => {
