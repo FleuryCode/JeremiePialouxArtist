@@ -1,6 +1,19 @@
 .portfolioPieceContainer {
     margin-top: 14vh;
     overflow-x: hidden;
+    h1 {
+        font-size: 180%;
+    }
+
+    h3 {
+        font-family: 'din-condensed', sans-serif;
+        font-weight: 300;
+        font-size: 132%;
+    }
+    h6 {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 92%;
+    }
 
     .lineBreak {
         width: 90%;
@@ -34,6 +47,7 @@
 
     .portfolioNavigation {
         display: flex;
+
         .prevContainer {
             display: flex;
             text-decoration: none;

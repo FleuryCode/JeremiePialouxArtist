@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './portfolioPiece.styles.scss';
 import { useLocation } from "react-router-dom";
-import { ReactComponent as ArrowIcon } from '../../assets/arrowIcon.svg';
 import { Link } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
