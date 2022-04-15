@@ -9,7 +9,9 @@ import testImageOne from '../../assets/testImageOne.jpg';
 import testImageTwo from '../../assets/testImageTwo.jpeg';
 import testImageThree from '../../assets/testImageThree.jpeg';
 
-const HomePage = ({ textData }) => {
+const HomePage = ({ textData, language }) => {
+
+    // Smooth Scrolling to Portfolio
     const location = useLocation();
     useEffect(() => {
         if (location.hash) {
@@ -23,6 +25,12 @@ const HomePage = ({ textData }) => {
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         };
     }, [location]);
+
+    // Setting up HomeInfo
+    let homeInfo = "";
+    let enHomeInfo = '';
+
+    homeInfo = textData.homeInfo;
 
 
     return (
@@ -39,7 +47,7 @@ const HomePage = ({ textData }) => {
             <div className="row p-0 mt-4">
                 <div className="col-12 d-flex flex-column p-5 mx-auto">
                     <h1 className="px-2">Mon Art</h1>
-                    <h5 className="px-2">{textData.homeInfo}</h5>
+                    <h5 className="px-2">{homeInfo}</h5>
                 </div>
             </div>
             <div id="portfolio" className="row p-0">
@@ -52,7 +60,8 @@ const HomePage = ({ textData }) => {
 }
 
 const mapStateToProps = (state) => ({
-    textData: state.text.textData
+    textData: state.text.textData,
+    language: state.text.language
 });
 
 export default connect(mapStateToProps)(HomePage);

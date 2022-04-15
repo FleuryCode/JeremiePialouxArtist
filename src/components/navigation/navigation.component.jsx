@@ -31,7 +31,7 @@ const Navigation = ({ language, setTextLang }) => {
         <nav className="navigationContainer p-4">
             <div className="logo me-auto">
                 <Link className="logoNav" to={'/'}>
-                    <h3 className={scrolled ? 'scrolled' : ''}>Jérémie Pialoux</h3>
+                    <h3 className={scrolled ? 'scrolled' : ''}>KAMONN</h3>
                 </Link>
             </div>
             <div className="mainNavigation d-none d-sm-flex">

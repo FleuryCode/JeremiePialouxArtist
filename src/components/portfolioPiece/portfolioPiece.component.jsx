@@ -9,7 +9,7 @@ import { storage } from "../../firebase/firebase.utils";
 import { getDownloadURL, ref } from "firebase/storage";
 import SpecificPortfolioImages from "../specificPortfolioImages/specificPortfolioImages.component";
 
-const PortfolioPiece = ({ imageData }) => {
+const PortfolioPiece = ({ imageData, language }) => {
     const [images, setImages] = useState([]);
     const location = useLocation().pathname;
     let data = {}
@@ -77,7 +77,12 @@ const PortfolioPiece = ({ imageData }) => {
                     </div>
                     <div className="techniqueContainer mb-4">
                         <h6>Technique</h6>
-                        <h3>{data.technique}</h3>
+                        <h3>{
+                            (language === 'FR') ?
+                                data.technique
+                                :
+                                data.enTechnique
+                        }</h3>
                         <div className="lineBreak"></div>
                     </div>
                     <div className="dimensionsContainer mb-4">
@@ -87,7 +92,12 @@ const PortfolioPiece = ({ imageData }) => {
                     </div>
                     <div className="descriptionContainer mb-4">
                         <h6>Description</h6>
-                        <h3>{data.description}</h3>
+                        <h3>{
+                            (language === 'FR') ?
+                                data.description
+                                :
+                                data.enDescription
+                        }</h3>
                     </div>
                 </div>
             </div>
@@ -109,7 +119,8 @@ const PortfolioPiece = ({ imageData }) => {
 }
 
 const mapStateToProps = (state) => ({
-    imageData: state.portfolio.imageData
+    imageData: state.portfolio.imageData,
+    language: state.text.language
 });
 
 export default connect(mapStateToProps)(PortfolioPiece);

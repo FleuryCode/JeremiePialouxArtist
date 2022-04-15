@@ -1,17 +1,61 @@
 import React from "react";
 import './about.styles.scss';
+import ProfilePicture from '../../assets/lowQualProfile.jpeg';
+import { peinture, abstrait, matiere, lumiere, invitation } from "../../websiteText";
 // Redux
 import { connect } from "react-redux";
 
 const AboutPage = ({ textData }) => {
+    // TEXT CHANGES
+    // Peinture
+    let peintureText = peinture;
+    
+    // Abstrait
+    let abstraitText = abstrait;
+
+    // Matière
+    let matiereText = matiere;
+
+    // Lumière et Couleur
+    let lumiereText = lumiere;
+
+    // Invitation
+    let invitationText = invitation;
+    
     return (
         <div className="aboutPageContainer container-fluid">
             <div className="row aboutInfo">
-                <div className="col-12">
-                    <h1>A Propos</h1>
+                <div className="col-6 p-4">
+                    {/* Peinture */}
+                    <div className="peinture">
+                        <h2>Peinture</h2>
+                        <p>{peintureText}</p>
+                    </div>
+                    {/* Matiere */}
+                    <div className="matiere mt-5">
+                        <h2>Matière</h2>
+                        <p>{matiereText}</p>
+                    </div>
+                    {/* Invitation */}
+                    <div className="invitation mt-5">
+                        <h2>Invitation</h2>
+                        <p>{invitationText}</p>
+                    </div>
                 </div>
-                <div className="col-12">
-                    <p>{textData.aboutInfo}</p>
+                <div className="col-6 p-4">
+                    <div className="profilePicture d-flex justify-content-center">
+                        <img src={ProfilePicture} alt="Kamonn Profile" />
+                    </div>
+                    {/* Abstrait */}
+                    <div className="abstrait mt-5">
+                        <h2>Abstrait</h2>
+                        <p>{abstraitText}</p>
+                    </div>
+                    {/* Lumière et Couleur */}
+                    <div className="lumiere mt-5">
+                        <h2>Lumière et Couleur</h2>
+                        <p>{lumiereText}</p>
+                    </div>
                 </div>
             </div>
         </div>
