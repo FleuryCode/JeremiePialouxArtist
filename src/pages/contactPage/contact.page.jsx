@@ -5,7 +5,6 @@ import CustomInput from "../../components/customInput/customInput.component";
 import CustomTextArea from "../../components/customTextArea/customTextArea.component";
 import ReCAPTCHA from "react-google-recaptcha";
 import { KEYS } from "../../Keys";
-import Recaptcha from "react-google-recaptcha/lib/recaptcha";
 import axios from "axios";
 
 
