@@ -104,7 +104,7 @@ const ContactPage = () => {
                         onChange={updateRecaptcha}
                     />
                 </div>
-                <div className="col-12 col-md-3 my-4 d-flex align-items-center">
+                <div className="col-12 col-md-2 my-4 d-flex align-items-center">
                     <ArrowSendingButton messageSending={messageSending} onClick={sendButtonClick} />
                 </div>
                 <div className={`${messageSent ? 'd-flex' : 'd-none'} col-12 justify-content-center`}>

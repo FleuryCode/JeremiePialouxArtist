@@ -4,7 +4,7 @@ import {ReactComponent as SendArrowIcon} from '../../assets/sendArrowIcon.svg';
 
 const ArrowSendingButton = ({ messageSending, onClick }) => {
     return (
-        <div className="arrowSendingButtonContainer">
+        <div className="arrowSendingButtonContainer justify-content-md-end justify-content-start">
             {
                 messageSending ?
                     <div class="spinner-border" role="status">
