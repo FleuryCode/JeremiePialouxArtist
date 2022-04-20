@@ -40,6 +40,7 @@ const PortfolioPiece = ({ imageData, language }) => {
 
     useEffect(() => {
         getImages();
+        window.scrollTo(0, 0);
     }, [imageData, location]);
 
     // Prev and Next Links
@@ -67,37 +68,69 @@ const PortfolioPiece = ({ imageData, language }) => {
                     <SpecificPortfolioImages images={images} />
                 </div>
                 <div className="col-12 col-md-4 px-4">
-                    <div className="text-center mb-4">
+                    <div className="mb-5">
                         <h1>{data.title}</h1>
                     </div>
-                    <div className="creationDateContainer mb-4">
-                        <h6>Date de Creation</h6>
-                        <h3>{data.creationDate}</h3>
+                    <div className="pieceInfoBox mb-3">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-5">
+                                    <h6>Date de Creation</h6>
+                                </div>
+                                <div className="col-7">
+                                    <h3>{data.creationDate}</h3>
+                                </div>
+                            </div>
+                        </div>
                         <div className="lineBreak"></div>
                     </div>
-                    <div className="techniqueContainer mb-4">
-                        <h6>Technique</h6>
-                        <h3>{
-                            (language === 'FR') ?
-                                data.technique
-                                :
-                                data.enTechnique
-                        }</h3>
+                    <div className="pieceInfoBox mb-3">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-5">
+                                    <h6>Technique</h6>
+                                </div>
+                                <div className="col-7">
+                                    <h3>{
+                                        (language === 'FR') ?
+                                            data.technique
+                                            :
+                                            data.enTechnique
+                                    }</h3>
+                                </div>
+                            </div>
+                        </div>
                         <div className="lineBreak"></div>
                     </div>
-                    <div className="dimensionsContainer mb-4">
-                        <h6>Dimensions</h6>
-                        <h3>{`${data.realHeight} x ${data.realWidth}`}</h3>
+                    <div className="pieceInfoBox mb-3">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-5">
+                                    <h6>Dimensions</h6>
+                                </div>
+                                <div className="col-7">
+                                    <h3>{`${data.realHeight} x ${data.realWidth}`}</h3>
+                                </div>
+                            </div>
+                        </div>
                         <div className="lineBreak"></div>
                     </div>
-                    <div className="descriptionContainer mb-4">
-                        <h6>Description</h6>
-                        <h3>{
-                            (language === 'FR') ?
-                                data.description
-                                :
-                                data.enDescription
-                        }</h3>
+                    <div className="pieceInfoBox mb-3">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-5">
+                                    <h6>Description</h6>
+                                </div>
+                                <div className="col-7">
+                                    <h3>{
+                                        (language === 'FR') ?
+                                            data.description
+                                            :
+                                            data.enDescription
+                                    }</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,10 +138,10 @@ const PortfolioPiece = ({ imageData, language }) => {
                 <div className="col-12">
                     <div className="portfolioNavigation">
                         <Link to={`/portfolio/${prevLink}`} className="prevContainer me-auto ms-4">
-                            <p>Précédent</p>
+                            <p>PRECEDENT</p>
                         </Link>
                         <Link to={`/portfolio/${nextLink}`} className="nextContainer ms-auto me-4">
-                            <p>Suivant</p>
+                            <p>SUIVANT</p>
                         </Link>
                     </div>
                 </div>
