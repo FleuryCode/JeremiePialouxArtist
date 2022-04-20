@@ -40,8 +40,10 @@ const PortfolioPiece = ({ imageData, language }) => {
 
     useEffect(() => {
         getImages();
-        window.scrollTo(0, 0);
     }, [imageData, location]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
 
     // Prev and Next Links
     // Prev
