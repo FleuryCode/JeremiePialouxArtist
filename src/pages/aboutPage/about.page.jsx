@@ -36,11 +36,6 @@ const AboutPage = ({ textData }) => {
                         <h2>Matière</h2>
                         <p>{matiereText}</p>
                     </div>
-                    {/* Invitation */}
-                    <div className="invitation mt-5">
-                        <h2>Invitation</h2>
-                        <p>{invitationText}</p>
-                    </div>
                 </div>
                 <div className="col-6 p-4">
                     <div className="profilePicture d-flex justify-content-center">
