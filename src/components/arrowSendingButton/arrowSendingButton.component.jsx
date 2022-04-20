@@ -7,8 +7,8 @@ const ArrowSendingButton = ({ messageSending, onClick }) => {
         <div className="arrowSendingButtonContainer justify-content-md-end justify-content-start">
             {
                 messageSending ?
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only"></span>
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only"></span>
                     </div>
                     :
                     <div onClick={onClick} className="sendArrowContainer">

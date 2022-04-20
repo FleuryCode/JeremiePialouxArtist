@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import './navigation.styles.scss';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as InstagramIcon } from '../../assets/instagramIcon.svg';
 // Redux
 import { connect } from "react-redux";
 import { setTextLang } from '../../redux/text/text.actions';
 
 const Navigation = ({ language, setTextLang }) => {
+    const location = useLocation().pathname;
     const [menuOpen, setMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    let activeLanguage = language;
 
     const mobileMenuClick = () => {
         setMenuOpen(!menuOpen);
     };
+
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location]);
 
     // Scroll Event to Change Style
     useEffect(() => {
@@ -34,11 +38,11 @@ const Navigation = ({ language, setTextLang }) => {
                     <h3 className={scrolled ? 'scrolled' : ''}>KAMONN</h3>
                 </Link>
             </div>
-            <div className="mainNavigation d-none d-sm-flex">
+            <div className="mainNavigation d-none d-md-flex">
                 <div className="navItemHolder">
-                    <Link className="navLink-item" to={'/#portfolio'}>Portfolio</Link>
-                    <Link className="navLink-item" to={'/bio'}>Bio</Link>
-                    <Link className="navLink-item" to={'/contact'}>Contact</Link>
+                    <Link className="navLink-item" to={'/#portfolio'}>PORTFOLIO</Link>
+                    <Link className="navLink-item" to={'/bio'}>BIO</Link>
+                    <Link className="navLink-item" to={'/contact'}>CONTACT</Link>
                     <a className="instaLogoContainer" href="https://www.instagram.com/kamonn.true/" target={'_blank'}><InstagramIcon className="instaLogo" /></a>
                 </div>
                 <div className="langSwitch">
@@ -47,7 +51,7 @@ const Navigation = ({ language, setTextLang }) => {
                     <h6 onClick={() => onLangClick('EN')} className={`${(language === 'EN') ? 'activeLang' : ''} enLang`}>EN</h6>
                 </div>
             </div>
-            <div className="mobileNavigation d-flex d-sm-none">
+            <div className="mobileNavigation d-flex d-md-none">
                 <div className="menuContainer">
                     <a className="instaLogoContainer" href="https://www.instagram.com/kamonn.true/" target={'_blank'}><InstagramIcon className="instaLogo" /></a>
                     <div onClick={mobileMenuClick} className={`${menuOpen ? 'open' : ''} burgerMenu`}>
@@ -59,9 +63,14 @@ const Navigation = ({ language, setTextLang }) => {
                 </div>
 
                 <div className={`${menuOpen ? 'menuOpen' : 'menuClosed'} mobileNavLink`}>
-                    <Link className="mobileLink-item" to={'/#portfolio'}>Portfolio</Link>
-                    <Link className="mobileLink-item" to={'/bio'}>Bio</Link>
-                    <Link className="mobileLink-item" to={'/contact'}>Contact</Link>
+                    <Link className="mobileLink-item" to={'/#portfolio'}>PORTFOLIO</Link>
+                    <Link className="mobileLink-item" to={'/bio'}>BIO</Link>
+                    <Link className="mobileLink-item" to={'/contact'}>CONTACT</Link>
+                    <div className="langSwitch">
+                        <h6 onClick={() => onLangClick('FR')} className={`${(language === 'FR') ? 'activeLang' : ''} frLang`}>FR</h6>
+                        <div>-</div>
+                        <h6 onClick={() => onLangClick('EN')} className={`${(language === 'EN') ? 'activeLang' : ''} enLang`}>EN</h6>
+                    </div>
                 </div>
             </div>
         </nav>
