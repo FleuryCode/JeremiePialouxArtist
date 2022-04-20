@@ -45,7 +45,7 @@ const HomePage = ({ textData, language }) => {
                 </div>
             </div>
             <div className="row p-0 mt-4">
-                <div className="col-12 d-flex flex-column p-5 mx-auto">
+                <div className="col-12 d-flex flex-column mx-auto mainInfoBox">
                     <h1 className="px-2">Mon Art</h1>
                     <h5 className="px-2">{homeInfo}</h5>
                 </div>

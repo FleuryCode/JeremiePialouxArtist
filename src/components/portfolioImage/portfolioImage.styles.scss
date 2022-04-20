@@ -9,13 +9,16 @@
         display: flex;
         justify-content: center;
         max-height: 100%;
+        
         img {
             height: 100%;
             max-width: 100%;
             object-fit: cover;
             cursor: pointer;
         }
+        
+      
     }
-
     
 }
+

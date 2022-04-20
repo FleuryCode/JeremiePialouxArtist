@@ -1,4 +1,5 @@
 .mainPortfolioContainer {
+    display: flex;
     h2 {
         font-size: 240%;
         border-bottom: 2px solid #FAA44F;
@@ -6,9 +7,8 @@
     }
 
     .portfolioImagesHolder {
-        justify-content: center;
-
-        
+        justify-content: start;
     }
+    
     
 }
