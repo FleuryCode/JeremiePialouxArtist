@@ -91,11 +91,13 @@ const ContactPage = () => {
                 </div>
             </div>
             <form className="row pt-5">
-                <div className="col-12 col-md-8 my-2 d-flex justify-content-center me-auto">
-                    <CustomInput id={'email'} type={'email'} name={'email'} placeholder={'EMAIL'} value={email} onChange={inputChangeHandle} />
+                <div className="col-12 col-md-8 my-2 d-flex justify-content-center me-auto flex-column">
+                    <label className="inputLabel" htmlFor="email">EMAIL</label>
+                    <CustomInput id={'email'} type={'email'} name={'email'} value={email} onChange={inputChangeHandle} />
                 </div>
-                <div className="col-12 col-md-8 my-4 d-flex justify-content-center me-auto">
-                    <CustomTextArea id={'message'} name={'message'} placeholder={'MESSAGE'} value={message} onChange={inputChangeHandle} />
+                <div className="col-12 col-md-8 my-4 d-flex justify-content-center me-auto flex-column">
+                <label className="inputLabel" htmlFor="message">Message</label>
+                    <CustomTextArea id={'message'} name={'message'} value={message} onChange={inputChangeHandle} />
                 </div>
                 <div className="col-12 col-md-6 my-4">
                     <ReCAPTCHA
