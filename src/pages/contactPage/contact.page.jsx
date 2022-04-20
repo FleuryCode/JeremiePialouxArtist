@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import './contact.styles.scss';
-import CustomButton from "../../components/customButton/customButton.component";
 import CustomInput from "../../components/customInput/customInput.component";
 import CustomTextArea from "../../components/customTextArea/customTextArea.component";
+import ArrowSendingButton from "../../components/arrowSendingButton/arrowSendingButton.component";
 import ReCAPTCHA from "react-google-recaptcha";
 import { KEYS } from "../../Keys";
 import axios from "axios";
@@ -57,7 +57,7 @@ const ContactPage = () => {
             setMessage('');
             setDisplayMessage('Merci pour votre message');
             setMessageSent(true);
-            
+
             // Reset Recaptcha
             recaptchaRef.current.reset();
         } catch (error) {
@@ -69,12 +69,12 @@ const ContactPage = () => {
     };
 
     const sendButtonClick = async (event) => {
-        if(email !== '' && message !== '') {
+        if (email !== '' && message !== '') {
             event.preventDefault();
             setMessageSending(true);
             await sendAxiosMessage();
             setMessageSending(false);
-        }else {
+        } else {
             setMessageSent(true);
             setDisplayMessage('Veuillez remplir toutes les informations');
         }
@@ -90,22 +90,22 @@ const ContactPage = () => {
                     <h1>CONTACT</h1>
                 </div>
             </div>
-            <form className="row p-4">
-                <div className="col-12 my-2 d-flex justify-content-center">
+            <form className="row pt-5">
+                <div className="col-12 col-md-8 my-2 d-flex justify-content-center me-auto">
                     <CustomInput id={'email'} type={'email'} name={'email'} placeholder={'EMAIL'} value={email} onChange={inputChangeHandle} />
                 </div>
-                <div className="col-12 my-4 d-flex justify-content-center">
+                <div className="col-12 col-md-8 my-4 d-flex justify-content-center me-auto">
                     <CustomTextArea id={'message'} name={'message'} placeholder={'MESSAGE'} value={message} onChange={inputChangeHandle} />
                 </div>
-                <div className="col-12 col-md-8 mb-4">
+                <div className="col-12 col-md-6 my-4">
                     <ReCAPTCHA
                         ref={recaptchaRef}
                         sitekey={recaptchaKey}
                         onChange={updateRecaptcha}
                     />
                 </div>
-                <div className="col-12 col-md-4">
-                    <CustomButton onClick={sendButtonClick} text={'ENVOYER'} messageSending={messageSending} />
+                <div className="col-12 col-md-3 my-4 d-flex align-items-center">
+                    <ArrowSendingButton messageSending={messageSending} onClick={sendButtonClick} />
                 </div>
                 <div className={`${messageSent ? 'd-flex' : 'd-none'} col-12 justify-content-center`}>
                     <h4 className="displayMessage">{displayMessage}</h4>

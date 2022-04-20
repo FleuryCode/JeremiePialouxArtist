@@ -1,0 +1,15 @@
+.arrowSendingButtonContainer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    .sendArrowContainer {
+        svg{
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            &:hover {
+                fill: #1F4FC1;
+            }
+        }
+    }
+
+}
