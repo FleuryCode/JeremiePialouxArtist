@@ -1,6 +1,10 @@
+@font-face {
+  font-family: Bahnschrift;
+  src: url('./assets/BAHNSCHRIFT.TTF');
+}
 .App {
   background-color: white;
   height: 100%;
-  font-family: 'Bahnschrift', sans-serif !important;
+  font-family: Bahnschrift, sans-serif !important;
 }
 
