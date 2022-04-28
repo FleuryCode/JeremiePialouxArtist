@@ -32,7 +32,7 @@ const Navigation = ({ language, setTextLang }) => {
         setTextLang(lang);
     }
     return (
-        <nav className="navigationContainer p-4">
+        <nav className="navigationContainer">
             <div className="logo me-auto">
                 <Link className="logoNav" to={'/'}>
                     <h3 className={scrolled ? 'scrolled' : ''}>KAMONN</h3>

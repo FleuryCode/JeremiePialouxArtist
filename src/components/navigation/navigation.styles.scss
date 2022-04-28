@@ -6,6 +6,7 @@
     position: fixed;
     width: 100vw;
     top: 0;
+    padding: 2% 5% 0.5% 5%;
 
     .logo {
         max-width: 40%;
@@ -43,10 +44,13 @@
                 margin-left: 24px;
                 text-decoration: none;
                 color: black;
-                font-size: 200%;
+                font-size: 172%;
                 transition: 0.5s ease-in-out;
                 font-family: 'Akshar', sans-serif;
                 font-weight: 500;
+                @media (min-width: 992px) {
+                    font-size: 200%;
+                }
 
                 &:hover,
                 &:active {
