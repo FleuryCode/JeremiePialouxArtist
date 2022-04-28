@@ -50,7 +50,7 @@ const HomePage = ({ textData, language }) => {
                     <h5 className="px-2">{homeInfo}</h5>
                 </div>
             </div>
-            <div id="portfolio" className="row p-0">
+            <div id="portfolio" className="row p-0 mx-auto">
                 <div className="col-12 p-0">
                     <PortfolioContainer />
                 </div>
