@@ -70,11 +70,11 @@ const PortfolioPiece = ({ imageData, language }) => {
                     <SpecificPortfolioImages images={images} />
                 </div>
                 <div className="col-12 col-md-4 px-4">
-                    <div className="mb-5">
+                    <div className="mb-5 mt-5 mt-md-0">
                         <h1>{data.title}</h1>
                     </div>
                     <div className="pieceInfoBox mb-3">
-                        <div className="container">
+                        <div className="container-fluid">
                             <div className="row">
                                 <div className="col-5">
                                     <h6>Date de Creation</h6>
@@ -87,7 +87,7 @@ const PortfolioPiece = ({ imageData, language }) => {
                         <div className="lineBreak"></div>
                     </div>
                     <div className="pieceInfoBox mb-3">
-                        <div className="container">
+                        <div className="container-fluid">
                             <div className="row">
                                 <div className="col-5">
                                     <h6>Technique</h6>
@@ -105,7 +105,7 @@ const PortfolioPiece = ({ imageData, language }) => {
                         <div className="lineBreak"></div>
                     </div>
                     <div className="pieceInfoBox mb-3">
-                        <div className="container">
+                        <div className="container-fluid">
                             <div className="row">
                                 <div className="col-5">
                                     <h6>Dimensions</h6>
@@ -118,7 +118,7 @@ const PortfolioPiece = ({ imageData, language }) => {
                         <div className="lineBreak"></div>
                     </div>
                     <div className="pieceInfoBox mb-3">
-                        <div className="container">
+                        <div className="container-fluid">
                             <div className="row">
                                 <div className="col-5">
                                     <h6>Description</h6>

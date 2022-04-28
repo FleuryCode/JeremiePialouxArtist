@@ -7,13 +7,17 @@
         h3 {
             font-family: 'din-condensed', sans-serif;
             font-weight: 300;
-            font-size: 132%;
+            font-size: 120%;
             word-break: break-all;
+            @media (min-width: 1200px) {
+                font-size: 148%;
+            }
         }
         h6 {
             color: rgba(0, 0, 0, 0.6);
-            font-size: 92%;
+            font-size: 112%;
             text-transform: uppercase;
+            font-family: 'Pathway Gothic One', sans-serif;
         }
     }
 
