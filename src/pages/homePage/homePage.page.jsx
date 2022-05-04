@@ -28,10 +28,11 @@ const HomePage = ({ textData, language }) => {
 
     // Setting up HomeInfo
     let homeInfo = "";
-    let enHomeInfo = '';
-
-    homeInfo = textData.homeInfo;
-
+    if(language === 'FR') {
+        homeInfo = textData.homeInfo;
+    }else {
+        homeInfo = textData.homeInfoEn;
+    }
 
     return (
         <div className="homepageContainer container-fluid">
@@ -46,7 +47,7 @@ const HomePage = ({ textData, language }) => {
             </div>
             <div className="row p-0 mt-4">
                 <div className="col-12 d-flex flex-column mx-auto mainInfoBox">
-                    <h1 className="px-2">Mon Art</h1>
+                    <h1 className="px-2">{(language === 'FR') ? 'Mon Art' : 'My Art'}</h1>
                     <h5 className="px-2">{homeInfo}</h5>
                 </div>
             </div>

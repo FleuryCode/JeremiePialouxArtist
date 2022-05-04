@@ -5,19 +5,44 @@ import { peinture, abstrait, matiere, lumiere } from "../../websiteText";
 // Redux
 import { connect } from "react-redux";
 
-const AboutPage = ({ textData }) => {
+const AboutPage = ({ textData, language }) => {
     // TEXT CHANGES
     // Peinture
     let peintureText = peinture;
-
+    if(textData.peinture !== '' && textData.peintureEn !== '') {
+        if(language === 'FR') {
+            peintureText = textData.peinture
+        }else {
+            peintureText = textData.peintureEn
+        }
+    }
     // Abstrait
     let abstraitText = abstrait;
-
+    if(textData.abstrait !== '' && textData.abstraitEn !== '') {
+        if(language === 'FR') {
+            abstraitText = textData.abstrait
+        }else {
+            abstraitText = textData.abstraitEn
+        }
+    }
     // Matière
     let matiereText = matiere;
-
+    if(textData.matiere !== '' && textData.matiereEn !== '') {
+        if(language === 'FR') {
+            matiereText = textData.matiere
+        }else {
+            matiereText = textData.matiereEn
+        }
+    }
     // Lumière et Couleur
     let lumiereText = lumiere;
+    if(textData.lumiere !== '' && textData.lumiereEn !== '') {
+        if(language === 'FR') {
+            lumiereText = textData.lumiere
+        }else {
+            lumiereText = textData.lumiereEn
+        }
+    }
 
 
     return (
@@ -91,7 +116,8 @@ const AboutPage = ({ textData }) => {
 }
 
 const mapStateToProps = (state) => ({
-    textData: state.text.textData
+    textData: state.text.textData,
+    language: state.text.language
 });
 
 export default connect(mapStateToProps)(AboutPage);
