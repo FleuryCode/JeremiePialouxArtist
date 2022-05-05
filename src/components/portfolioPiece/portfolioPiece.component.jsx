@@ -8,10 +8,13 @@ import { connect } from "react-redux";
 import { storage } from "../../firebase/firebase.utils";
 import { getDownloadURL, ref } from "firebase/storage";
 import SpecificPortfolioImages from "../specificPortfolioImages/specificPortfolioImages.component";
+import Loading from "../loading/loading.component";
 
-const PortfolioPiece = ({ imageData, language }) => {
+const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
     const [images, setImages] = useState([]);
     const location = useLocation().pathname;
+
+
     let data = {}
     let dataIndex = 0;
 
@@ -43,28 +46,38 @@ const PortfolioPiece = ({ imageData, language }) => {
     }, [imageData, location]);
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location]);
+    }, [location, imageData]);
 
     // Prev and Next Links
     // Prev
     let prevLink = '';
-    if (dataIndex === 0) {
-        prevLink = imageData[imageData.length - 1].link;
-    } else {
-        prevLink = imageData[dataIndex - 1].link;
-    }
-    // Next
     let nextLink = '';
-    if (dataIndex === imageData.length - 1) {
-        nextLink = imageData[0].link;
-    } else {
-        nextLink = imageData[dataIndex + 1].link;
+    if (imageData.length > 0) {
+        
+        if (dataIndex === 0) {
+            prevLink = imageData[imageData.length - 1].link;
+        } else {
+            prevLink = imageData[dataIndex - 1].link;
+        }
+        // Next
+        if (dataIndex === imageData.length - 1) {
+            nextLink = imageData[0].link;
+        } else {
+            nextLink = imageData[dataIndex + 1].link;
+        }
     }
+
 
 
 
     return (
         <div className="portfolioPieceContainer container-fluid p-2">
+            {
+                imagesDownloading ?
+                <Loading />
+                :
+                <div></div>
+            }
             <div className="row">
                 <div className="col-12 col-md-8">
                     <SpecificPortfolioImages images={images} />
@@ -155,7 +168,8 @@ const PortfolioPiece = ({ imageData, language }) => {
 
 const mapStateToProps = (state) => ({
     imageData: state.portfolio.imageData,
-    language: state.text.language
+    language: state.text.language,
+    imagesDownloading: state.portfolio.imagesDownloading
 });
 
 export default connect(mapStateToProps)(PortfolioPiece);
