@@ -6,7 +6,9 @@
     width: 100vw;
     top: 0;
     padding: 2% 5% 0.5% 5%;
+    height: 140px;
     align-items: center;
+
     .logo {
         max-width: 40%;
         align-self: flex-start;
@@ -37,6 +39,7 @@
         .navItemHolder {
             display: flex;
             flex-direction: row;
+
             .navLink-item {
                 margin-left: 24px;
                 text-decoration: none;
@@ -45,6 +48,7 @@
                 transition: 0.5s ease-in-out;
                 font-family: 'Pathway Gothic One', sans-serif;
                 font-weight: 500;
+
                 @media (min-width: 992px) {
                     font-size: 320%;
                 }
@@ -58,12 +62,13 @@
             .instaLogoContainer {
                 display: flex;
                 align-items: center;
-    
+
                 .instaLogo {
                     transition: 0.5s ease-in-out;
                     width: 32px;
                     height: 32px;
                     margin-left: 32px;
+
                     // margin-right: 30px;
                     &:hover {
                         fill: #1F4FC1;
@@ -71,6 +76,7 @@
                 }
             }
         }
+
         .langSwitch {
             margin-top: 8px;
             display: flex;
@@ -84,9 +90,11 @@
                 transition: 0.4s ease-in-out;
                 font-family: 'Pathway Gothic One', sans-serif;
                 font-weight: 500;
+
                 &:hover {
                     color: #1F4FC1;
                 }
+
                 &.activeLang {
                     color: #1F4FC1;
                 }
@@ -95,7 +103,7 @@
 
 
 
-        
+
 
     }
 
@@ -238,15 +246,17 @@
                 justify-content: end;
                 font-family: 'Pathway Gothic One', sans-serif;
                 font-weight: 500;
-    
+
                 h6 {
                     margin: 0 8px;
                     cursor: pointer;
                     font-size: 240%;
                     transition: 0.4s ease-in-out;
+
                     &:hover {
                         color: #1F4FC1;
                     }
+
                     &.activeLang {
                         color: #1F4FC1;
                     }
