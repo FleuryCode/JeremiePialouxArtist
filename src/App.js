@@ -14,26 +14,27 @@ import { connect } from 'react-redux';
 // Firebase
 import { getDownloadURL, ref } from "firebase/storage";
 import { db, storage } from "./firebase/firebase.utils";
-import { collection, onSnapshot, query, doc } from "firebase/firestore";
+import { collection, doc, getDocs, getDoc } from "firebase/firestore";
 import firebaseApp from './firebase/firebase.utils';
 
 
+const App = ({ setImageData, setImagesDownloading, setTextData }) => {
+  console.log('App.JS Launched');
 
-function App({ setImageData, setImagesDownloading, setTextData }) {
 
   // Portfolio Data
-  const portfolioQuery = query(collection(db, 'Portfolio'));
-    const getPortfolioData = onSnapshot(portfolioQuery, (querySnapshot) => {
-      const portfolioData = [];
-      querySnapshot.forEach((doc) => {
-        portfolioData.push(doc.data());
-      });
-      // Sorting based on ID
-      portfolioData.sort((a, b) => {
-        return a.id - b.id
-      });
-      getImageUrls(portfolioData);
+  const getPortfolioData = async () => {
+    const portfolioData = [];
+    const querySnapshot = await getDocs(collection(db, 'Portfolio'));
+    querySnapshot.forEach((doc) => {
+      portfolioData.push(doc.data());
     });
+    portfolioData.sort((a, b) => {
+      return a.id - b.id
+    });
+    getImageUrls(portfolioData);
+  }
+
 
   const getImageUrls = async (imageDataArray) => {
     for (let i = 0; i < imageDataArray.length; i++) {
@@ -51,14 +52,20 @@ function App({ setImageData, setImagesDownloading, setTextData }) {
   };
 
   // Text Data
-  const getTextData = onSnapshot(doc(db, 'Text', 'textData'), (doc) => {
-    setTextData(doc.data());
-  });
+  const getTextData = async () => {
+    const docRef = doc(db, 'Text', 'textData');
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setTextData(docSnap.data());
+    }
+  }
 
   useEffect(() => {
-    getPortfolioData();
     getTextData();
-  }, []);
+    getPortfolioData();
+  });
+
+
 
   return (
     <div className="App">
