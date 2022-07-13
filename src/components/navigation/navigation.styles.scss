@@ -10,8 +10,6 @@
     align-items: center;
 
     .logo {
-        max-width: 40%;
-        align-self: flex-start;
 
         .logoNav {
             text-decoration: none;
@@ -19,14 +17,18 @@
             h3 {
                 margin: 0;
                 text-decoration: none;
-                font-size: 400%;
+                font-size: 320%;
                 font-weight: 600;
                 color: black;
                 transition: 0.4s ease-in-out;
+
+                @media (min-width: 400px) {
+                    font-size: 520%;
+                }
             }
 
             .scrolled {
-                font-size: 32px;
+                font-size: 320%;
             }
         }
     }
@@ -34,7 +36,10 @@
     .mainNavigation {
         display: flex;
         flex-direction: column;
+        position: relative;
         padding-right: 20px;
+        padding-top: 20px;
+        margin-left: auto;
 
         .navItemHolder {
             display: flex;
@@ -44,13 +49,13 @@
                 margin-left: 24px;
                 text-decoration: none;
                 color: black;
-                font-size: 280%;
+                font-size: 220%;
                 transition: 0.5s ease-in-out;
                 font-family: 'Pathway Gothic One', sans-serif;
-                font-weight: 500;
+                font-weight: 600;
 
-                @media (min-width: 992px) {
-                    font-size: 320%;
+                @media (min-width: 1030px) {
+                    font-size: 220%;
                 }
 
                 &:hover,
@@ -110,9 +115,11 @@
     .mobileNavigation {
         display: flex;
         flex-direction: column;
-        padding-right: 12px;
-        padding-top: 20px;
-        position: relative;
+        padding-right: 40px;
+        padding-top: 68px;
+        position: absolute;
+        right: 0;
+        top: 0;
         overflow-y: hidden;
 
         .menuContainer {
@@ -181,7 +188,9 @@
                 }
 
                 &.open {
+
                     span {
+
                         &:nth-child(1) {
                             top: 18px;
                             width: 0%;
@@ -215,7 +224,9 @@
         .mobileNavLink {
             flex-direction: column;
             align-items: flex-end;
-            // display: flex;
+            display: flex;
+            // background-color: white;
+            // padding-left: 12px;
 
             .mobileLink-item {
                 text-decoration: none;

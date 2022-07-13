@@ -1,5 +1,6 @@
 .mainPortfolioContainer {
     display: flex;
+
     h2 {
         font-size: 240%;
         border-bottom: 2px solid #FAA44F;
@@ -8,7 +9,12 @@
 
     .portfolioImagesHolder {
         justify-content: start;
+
+        h5 {
+            color: gray;
+            text-transform: uppercase;
+        }
     }
-    
-    
+
+
 }

@@ -1,10 +1,13 @@
 .arrowSendingButtonContainer {
     width: 100%;
     display: flex;
+
     .sendArrowContainer {
-        svg{
+        svg {
+            width: 32px;
             cursor: pointer;
             transition: 0.3s ease-in-out;
+
             &:hover {
                 fill: #1F4FC1;
             }
