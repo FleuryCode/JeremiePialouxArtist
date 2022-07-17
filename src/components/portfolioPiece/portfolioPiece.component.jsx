@@ -73,7 +73,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
           <SpecificPortfolioImages images={images} />
         </div>
         <div className="col-12 col-md-4 px-4">
-          <div className="mb-5 mt-5 mt-md-0">
+          <div className="mb-3 mt-3 mt-md-0">
             <h1>{data.title}</h1>
           </div>
           <div className="pieceInfoBox mb-3">
