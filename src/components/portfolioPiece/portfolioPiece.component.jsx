@@ -24,6 +24,29 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
     }
   }
 
+  //SEO
+  useEffect(() => {
+    if (imageData.length > 0) {
+      if (language === 'FR') {
+        document.title = `Kamonn | ${data.title}`;
+        document
+          .querySelector('meta[name="description"]')
+          .setAttribute(
+            'content',
+            `Kamonn est un peintre basé à Paris, France. Travailler avec des styles abstraits. Les couleurs vives et le design créent des émotions stimulantes.`
+          );
+      } else {
+        document.title = `Kamonn | ${data.title}`;
+        document
+          .querySelector('meta[name="description"]')
+          .setAttribute(
+            'content',
+            `Kamonn is  a painter based out of Paris, France. Working with abstract styles. Bright colors and design create thought provoking emotions.`
+          );
+      }
+    }
+  }, [data.title, imageData.length, language]);
+
   const getImages = async () => {
     let imageUrls = [];
     if (imageData.length > 0) {

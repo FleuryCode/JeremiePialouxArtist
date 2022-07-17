@@ -19,8 +19,6 @@ import firebaseApp from './firebase/firebase.utils';
 
 
 const App = ({ setImageData, setImagesDownloading, setTextData }) => {
-  console.log('App.JS Launched');
-
 
   // Portfolio Data
   const getPortfolioData = async () => {

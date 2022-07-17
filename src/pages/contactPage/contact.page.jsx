@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './contact.styles.scss';
 import CustomInput from '../../components/customInput/customInput.component';
 import CustomTextArea from '../../components/customTextArea/customTextArea.component';
@@ -6,8 +6,10 @@ import ArrowSendingButton from '../../components/arrowSendingButton/arrowSending
 import ReCAPTCHA from 'react-google-recaptcha';
 import { KEYS } from '../../Keys';
 import axios from 'axios';
+//Redux
+import { connect } from 'react-redux';
 
-const ContactPage = () => {
+const ContactPage = ({ language }) => {
   const [recaptchaToken, setRecaptchaToken] = useState('');
   const [messageSending, setMessageSending] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
@@ -15,6 +17,27 @@ const ContactPage = () => {
   // Message Data
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  //SEO
+  useEffect(() => {
+    if (language === 'FR') {
+      document.title = `Contactez Kamonn | Artiste`;
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute(
+          'content',
+          `Contactez Kamonn pour obtenir des informations sur ses peintures telles que les prix, les dimensions ou les demandes personnalisées.`
+        );
+    } else {
+      document.title = `Contact Kamonn | Artist`;
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute(
+          'content',
+          `Contact Kamonn for information about his paintings such as prices, dimensions or custom requests.`
+        );
+    }
+  }, [language]);
 
   const inputChangeHandle = (event) => {
     const { value, name } = event.target;
@@ -129,4 +152,8 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+const mapStateToProps = (state) => ({
+  language: state.text.language,
+});
+
+export default connect(mapStateToProps)(ContactPage);

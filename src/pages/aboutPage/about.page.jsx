@@ -1,11 +1,33 @@
 import React from 'react';
 import './about.styles.scss';
-import ProfilePicture from '../../assets/lowQualProfile.jpeg';
+import ProfilePicture from '../../assets/profilePicture.jpg';
 import { peinture, abstrait, matiere, lumiere } from '../../websiteText';
 // Redux
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
 const AboutPage = ({ textData, language }) => {
+  //SEO
+  useEffect(() => {
+    if (language === 'FR') {
+      document.title = `À Propos De Kamonn | Artiste`;
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute(
+          'content',
+          `Kamonn fais de la peinture, car c’est ce qui me fait voir l’autre côté. L’autre côté de la porte ou le soleil brille plus fort, les couleurs sont plus intenses, les fruits ont meilleurs goûts. Je suis diplômé d’un Master de gestion des risques financiers, j’ai donc pris le risque immense de goûter à ce côté-là en espérant pouvoir y passer le reste de ma vie.`
+        );
+    } else {
+      document.title = `About Kamonn | Artist`;
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute(
+          'content',
+          `Kamonn paints because it is what makes me see the other side. The other side of the door where the sun shines brighter, the colors are more intense, the fruits taste better. I have a Master's degree in financial risk management, so I took the huge risk of tasting that side hoping to spend the rest of my life there.`
+        );
+    }
+  }, [language]);
+
   // TEXT CHANGES
   // Peinture
   let peintureText = peinture;
