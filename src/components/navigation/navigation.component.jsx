@@ -32,7 +32,11 @@ const Navigation = ({ language, setTextLang }) => {
     setTextLang(lang);
   };
   return (
-    <nav className="navigationContainer">
+    <nav
+      className={`navigationContainer ${menuOpen ? 'menuOpen' : ''} ${
+        scrolled ? 'scrolled' : ''
+      }`}
+    >
       <div className="logo me-auto">
         <Link className="logoNav" to={'/'}>
           <h3 className={scrolled ? 'scrolled' : ''}>KAMONN</h3>
@@ -58,7 +62,7 @@ const Navigation = ({ language, setTextLang }) => {
             <InstagramIcon className="instaLogo" />
           </a>
         </div>
-        <div className="langSwitch">
+        <div className={`langSwitch ${scrolled ? 'scrolled' : ''}`}>
           <h6
             onClick={() => onLangClick('FR')}
             className={`${language === 'FR' ? 'activeLang' : ''} frLang`}
