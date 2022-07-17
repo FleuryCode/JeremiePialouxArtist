@@ -5,7 +5,11 @@
     min-height: 100vh;
 
     .mainInfoBox {
-        width: 98%;
+        width: 90%;
+
+        h5 {
+            font-size: 160%;
+        }
     }
 
     #portfolio {

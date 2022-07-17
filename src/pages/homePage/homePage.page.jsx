@@ -7,9 +7,9 @@ import Jumbotron, {
 import PortfolioContainer from '../../components/portfolioContainer/portfolioContainer.component';
 // Redux
 import { connect } from 'react-redux';
-import testImageOne from '../../assets/testImageOne.jpg';
-import testImageTwo from '../../assets/testImageTwo.jpeg';
-import testImageThree from '../../assets/testImageThree.jpeg';
+import HeroImageOne from '../../assets/heroImageOne.jpg';
+import HeroImageTwo from '../../assets/heroImageTwo.jpg';
+import HeroImageThree from '../../assets/heroImageThree.jpg';
 
 const HomePage = ({ textData, language }) => {
   // Smooth Scrolling to Portfolio
@@ -61,9 +61,9 @@ const HomePage = ({ textData, language }) => {
       <div className="row">
         <div className="col-12 p-0 d-flex justify-content-center">
           <Jumbotron>
-            <JumbotronItem image={testImageOne} />
-            <JumbotronItem image={testImageTwo} />
-            <JumbotronItem image={testImageThree} />
+            <JumbotronItem image={HeroImageOne} />
+            <JumbotronItem image={HeroImageTwo} />
+            <JumbotronItem image={HeroImageThree} />
           </Jumbotron>
         </div>
       </div>
