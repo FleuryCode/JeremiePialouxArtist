@@ -120,10 +120,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
           <div className="pieceInfoBox mb-3">
             <div className="container-fluid">
               <div className="row">
-                <div className="col-5">
-                  <h6>Description</h6>
-                </div>
-                <div className="col-7">
+                <div className="col-12">
                   <h3>
                     {language === 'FR' ? data.description : data.enDescription}
                   </h3>
