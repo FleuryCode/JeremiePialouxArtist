@@ -1,26 +1,37 @@
 .portfolioPieceContainer {
-    margin-top: 200px;
+    margin-top: 100px;
     overflow-x: hidden;
+
+    @media (min-width: 768px) {
+        margin-top: 150px;
+    }
+
+    @media (min-width: 2560px) {
+        margin-top: 180px;
+    }
 
     .pieceInfoBox {
         display: flex;
         flex-direction: column;
 
         h3 {
-            font-family: 'din-condensed', sans-serif;
-            font-weight: 300;
-            font-size: 110%;
+            font-family: 'Noto Serif', serif;
+            font-weight: 400;
+            font-size: 90%;
+            margin: 0;
 
             @media (min-width: 1200px) {
-                font-size: 148%;
+                font-size: 128%;
             }
         }
 
         h6 {
             color: rgba(0, 0, 0, 0.6);
-            font-size: 108%;
+            font-size: 90%;
+            margin: 0;
             text-transform: uppercase;
-            font-family: 'Pathway Gothic One', sans-serif;
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 100;
         }
     }
 
@@ -71,9 +82,10 @@
             align-items: center;
 
             p {
-                font-weight: 600;
+                font-weight: 400;
                 color: black;
                 transition: 0.4s ease-in-out;
+                font-family: 'Oswald', sans-serif;
                 margin: 0;
 
                 &:hover {
@@ -88,10 +100,11 @@
             align-items: center;
 
             p {
-                font-weight: 600;
+                font-weight: 400;
                 color: black;
                 margin: 0;
                 transition: 0.4s ease-in-out;
+                font-family: 'Oswald', sans-serif;
 
                 &:hover {
                     color: #1F4FC1;

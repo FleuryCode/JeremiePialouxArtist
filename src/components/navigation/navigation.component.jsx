@@ -28,8 +28,13 @@ const Navigation = ({ language, setTextLang }) => {
   }, []);
 
   // Language Switch
-  const onLangClick = (lang) => {
-    setTextLang(lang);
+  const onLangClick = () => {
+    if(language === 'FR') {
+      setTextLang('EN');
+    }else if(language === 'EN') {
+      setTextLang('FR')
+    }
+    
   };
   return (
     <nav
@@ -53,6 +58,10 @@ const Navigation = ({ language, setTextLang }) => {
           <Link className="navLink-item" to={'/contact'}>
             CONTACT
           </Link>
+          <div className="langSwitchContainer">
+            <h6 onClick={() => onLangClick()}>{language === 'FR' ? 'FR' : 'EN'}</h6>
+          </div>
+
           <a
             className="instaLogoContainer"
             href="https://www.instagram.com/kamonn.true/"
@@ -62,23 +71,8 @@ const Navigation = ({ language, setTextLang }) => {
             <InstagramIcon className="instaLogo" />
           </a>
         </div>
-        <div className={`langSwitch ${scrolled ? 'scrolled' : ''}`}>
-          <h6
-            onClick={() => onLangClick('FR')}
-            className={`${language === 'FR' ? 'activeLang' : ''} frLang`}
-          >
-            FR
-          </h6>
-          <div>-</div>
-          <h6
-            onClick={() => onLangClick('EN')}
-            className={`${language === 'EN' ? 'activeLang' : ''} enLang`}
-          >
-            EN
-          </h6>
-        </div>
       </div>
-      <div className="mobileNavigation d-flex d-md-none">
+      <div className={`mobileNavigation d-flex d-md-none ${scrolled ? 'scrolled' : ''}`}>
         <div className="menuContainer">
           <a
             className="instaLogoContainer"
@@ -113,17 +107,10 @@ const Navigation = ({ language, setTextLang }) => {
           </Link>
           <div className="langSwitch">
             <h6
-              onClick={() => onLangClick('FR')}
-              className={`${language === 'FR' ? 'activeLang' : ''} frLang`}
+              onClick={() => onLangClick()}
+              className={''}
             >
-              FR
-            </h6>
-            <div>-</div>
-            <h6
-              onClick={() => onLangClick('EN')}
-              className={`${language === 'EN' ? 'activeLang' : ''} enLang`}
-            >
-              EN
+              {language === 'FR' ? 'FR' : 'EN'}
             </h6>
           </div>
         </div>

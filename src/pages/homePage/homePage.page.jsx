@@ -49,6 +49,7 @@ const HomePage = ({ textData, language }) => {
   }, [language]);
 
   // Setting up HomeInfo
+  let homeTitle = '';
   let homeInfo = '';
   if (language === 'FR') {
     homeInfo = textData.homeInfo;
@@ -60,23 +61,24 @@ const HomePage = ({ textData, language }) => {
     <div className="homepageContainer container-fluid">
       <div className="row">
         <div className="col-12 p-0 d-flex justify-content-center">
-          <Jumbotron>
-            <JumbotronItem image={HeroImageOne} />
-            <JumbotronItem image={HeroImageTwo} />
-            <JumbotronItem image={HeroImageThree} />
-          </Jumbotron>
+          <div className="headerImage">
+            <img src={HeroImageOne} alt="Hero Painting" />
+          </div>
         </div>
       </div>
-      <div className="row p-0 mt-4">
+      <div className="row p-0 my-4">
         <div className="col-12 d-flex flex-column mx-auto mainInfoBox">
-          <h1 className="px-2">{language === 'FR' ? 'Mon Art' : 'My Art'}</h1>
-          <h5 className="px-2">{homeInfo}</h5>
+          <h1 className="">{language === 'FR' ? 'Mon Art' : 'My Art'}</h1>
+          <h5 className="">{homeInfo}</h5>
         </div>
       </div>
       <div id="portfolio" className="row p-0 mx-auto">
         <div className="col-12 p-0">
           <PortfolioContainer />
         </div>
+      </div>
+      <div className="row mt-5 d-flex justify-content-center">
+        <p className='text-center'>Copyright &copy; 2022 Kamonn</p>
       </div>
     </div>
   );

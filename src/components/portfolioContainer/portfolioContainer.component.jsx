@@ -15,7 +15,7 @@ const PortfolioContainer = ({ imagesDownloading, imageData }) => {
         {imageData.map((image) => (
           <div
             key={image.id}
-            className={`col-12 col-md-6 col-lg-4 p-0 m-0 d-flex flex-column align-items-center`}
+            className={`col-12 col-md-6 col-lg-4 p-0 m-0 d-flex flex-column align-items-center mb-4`}
           >
             <PortfolioImage image={image} />
             <h5>{image.title}</h5>

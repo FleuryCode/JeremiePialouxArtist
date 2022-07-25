@@ -99,7 +99,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
           <div className="mb-3 mt-3 mt-md-0">
             <h1>{data.title}</h1>
           </div>
-          <div className="pieceInfoBox mb-3">
+          <div className="pieceInfoBox mb-1">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-5">
@@ -112,7 +112,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
             </div>
             <div className="lineBreak"></div>
           </div>
-          <div className="pieceInfoBox mb-3">
+          <div className="pieceInfoBox mb-1">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-5">
@@ -127,7 +127,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
             </div>
             <div className="lineBreak"></div>
           </div>
-          <div className="pieceInfoBox mb-3">
+          <div className="pieceInfoBox mb-1">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-5">
@@ -140,7 +140,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
             </div>
             <div className="lineBreak"></div>
           </div>
-          <div className="pieceInfoBox mb-3">
+          <div className="pieceInfoBox mb-1">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-12">
