@@ -21,7 +21,7 @@ const ContactPage = ({ language }) => {
   //SEO
   useEffect(() => {
     if (language === 'FR') {
-      document.title = `Contactez Kamonn | Artiste`;
+      document.title = `Contactez - KAMONN`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
@@ -29,7 +29,7 @@ const ContactPage = ({ language }) => {
           `Contactez Kamonn pour obtenir des informations sur ses peintures telles que les prix, les dimensions ou les demandes personnalisées.`
         );
     } else {
-      document.title = `Contact Kamonn | Artist`;
+      document.title = `Contact - KAMONN`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
@@ -38,6 +38,8 @@ const ContactPage = ({ language }) => {
         );
     }
   }, [language]);
+
+  window.scrollTo({top: 0, behavior: 'smooth'});
 
   const inputChangeHandle = (event) => {
     const { value, name } = event.target;
@@ -148,6 +150,9 @@ const ContactPage = ({ language }) => {
           <h4 className="displayMessage">{displayMessage}</h4>
         </div>
       </form>
+      <div className="row mt-auto d-flex justify-content-center">
+        <p className='text-center'>Copyright &copy; 2022 Kamonn</p>
+      </div>
     </div>
   );
 };

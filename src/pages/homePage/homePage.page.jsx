@@ -23,14 +23,14 @@ const HomePage = ({ textData, language }) => {
         window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
       }
     } else {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
   }, [location]);
 
   //SEO
   useEffect(() => {
     if (language === 'FR') {
-      document.title = `Kamonn | Artiste`;
+      document.title = `KAMONN |- Artiste`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
@@ -38,7 +38,7 @@ const HomePage = ({ textData, language }) => {
           `Kamonn est un peintre basé à Paris, France. Travailler avec des styles abstraits. Les couleurs vives et le design créent des émotions stimulantes.`
         );
     } else {
-      document.title = `Kamonn | Artist in Paris`;
+      document.title = `KAMONN - Artist in Paris`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
@@ -66,7 +66,7 @@ const HomePage = ({ textData, language }) => {
           </div>
         </div>
       </div>
-      <div className="row p-0 my-4">
+      <div className="row p-0 mb-4 mt-3">
         <div className="col-12 d-flex flex-column mx-auto mainInfoBox">
           <h1 className="">{language === 'FR' ? 'Mon Art' : 'My Art'}</h1>
           <h5 className="">{homeInfo}</h5>

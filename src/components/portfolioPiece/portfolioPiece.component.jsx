@@ -99,7 +99,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
           <div className="mb-3 mt-3 mt-md-0">
             <h1>{data.title}</h1>
           </div>
-          <div className="pieceInfoBox mb-1">
+          <div className="pieceInfoBox mb-1 mt-5">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-5">
@@ -170,6 +170,9 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="row mt-5 d-flex justify-content-center">
+        <p className='text-center'>Copyright &copy; 2022 Kamonn</p>
       </div>
     </div>
   );

@@ -5,12 +5,13 @@ import { peinture, abstrait, matiere, lumiere } from '../../websiteText';
 // Redux
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const AboutPage = ({ textData, language }) => {
   //SEO
   useEffect(() => {
     if (language === 'FR') {
-      document.title = `À Propos De Kamonn | Artiste`;
+      document.title = `Bio - KAMONN`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
@@ -18,7 +19,7 @@ const AboutPage = ({ textData, language }) => {
           `Kamonn fais de la peinture, car c’est ce qui me fait voir l’autre côté. L’autre côté de la porte ou le soleil brille plus fort, les couleurs sont plus intenses, les fruits ont meilleurs goûts. Je suis diplômé d’un Master de gestion des risques financiers, j’ai donc pris le risque immense de goûter à ce côté-là en espérant pouvoir y passer le reste de ma vie.`
         );
     } else {
-      document.title = `About Kamonn | Artist`;
+      document.title = `About - KAMONN`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
@@ -27,6 +28,8 @@ const AboutPage = ({ textData, language }) => {
         );
     }
   }, [language]);
+
+  window.scrollTo({top: 0, behavior: 'smooth'});
 
   // TEXT CHANGES
   // Peinture
@@ -72,7 +75,6 @@ const AboutPage = ({ textData, language }) => {
         <div className="col-6 p-4">
           {/* Peinture */}
           <div className="peinture">
-            <h2>{language === 'FR' ? 'Peinture' : 'Painting'}</h2>
             <p>{peintureText}</p>
           </div>
           {/* Matiere */}
@@ -83,11 +85,11 @@ const AboutPage = ({ textData, language }) => {
           </div>
         </div>
         <div className="col-6 p-4">
-          <div className="profilePicture d-flex justify-content-center">
+          <div className="profilePicture d-flex justify-content-center align-items-start">
             <img src={ProfilePicture} alt="Kamonn Profile" />
           </div>
           {/* Abstrait */}
-          <div className="abstrait mt-5">
+          <div className="abstrait">
             <h2>{language === 'FR' ? 'Abstrait' : 'Abstract'}</h2>
             <p>{abstraitText}</p>
           </div>
@@ -134,6 +136,9 @@ const AboutPage = ({ textData, language }) => {
             <p>{lumiereText}</p>
           </div>
         </div>
+      </div>
+      <div className="row mt-5 d-flex justify-content-center">
+        <p className="text-center">Copyright &copy; 2022 Kamonn</p>
       </div>
     </div>
   );

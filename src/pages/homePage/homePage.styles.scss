@@ -9,8 +9,8 @@
     }
 
     .headerImage {
-        width: 98%;
-        height: 44vh;
+        width: 92%;
+        height: 320px;
 
         img {
             width: 100%;
@@ -19,22 +19,28 @@
         }
 
         @media (min-width: 768px) {
-            height: 75vh;
+            height: 800px;
         }
     }
 
     .mainInfoBox {
-        width: 98%;
+        width: 96%;
 
         h1 {
             margin-right: 20px;
             font-family: 'Oswald', sans-serif;
+            font-weight: 600;
         }
 
         h5 {
-            font-size: 120%;
+            font-size: 100%;
             margin-right: 20px;
             font-family: 'Noto Serif', serif;
+            text-align: justify;
+        }
+
+        @media (min-width: 768px) {
+            width: 94%;
         }
     }
 

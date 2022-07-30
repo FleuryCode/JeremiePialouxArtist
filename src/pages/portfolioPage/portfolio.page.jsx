@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 const PortfolioPage = () => {
   useEffect(() => {
-    document.title = `Kamonn | Artiste`;
+    document.title = `KAMONN - Artiste`;
     document
       .querySelector('meta[name="description"]')
       .setAttribute(
