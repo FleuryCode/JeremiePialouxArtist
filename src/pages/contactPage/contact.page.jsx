@@ -21,7 +21,7 @@ const ContactPage = ({ language }) => {
   //SEO
   useEffect(() => {
     if (language === 'FR') {
-      document.title = `Contactez - KAMONN`;
+      document.title = `Contact - KAMONN`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(

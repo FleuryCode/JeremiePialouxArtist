@@ -30,7 +30,7 @@ const HomePage = ({ textData, language }) => {
   //SEO
   useEffect(() => {
     if (language === 'FR') {
-      document.title = `KAMONN |- Artiste`;
+      document.title = `KAMONN - Artiste`;
       document
         .querySelector('meta[name="description"]')
         .setAttribute(
