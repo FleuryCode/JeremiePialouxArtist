@@ -29,7 +29,7 @@ const AboutPage = ({ textData, language }) => {
     }
   }, [language]);
 
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 
   // TEXT CHANGES
   // Peinture
@@ -43,6 +43,7 @@ const AboutPage = ({ textData, language }) => {
   }
   // Abstrait
   let abstraitText = abstrait;
+  let abstractTitle = 'Abstrait';
   if (textData.abstrait !== '' && textData.abstraitEn !== '') {
     if (language === 'FR') {
       abstraitText = textData.abstrait;
@@ -50,8 +51,16 @@ const AboutPage = ({ textData, language }) => {
       abstraitText = textData.abstraitEn;
     }
   }
+  if (textData.abstractTitle !== '' && textData.abstractTitleEn !== '') {
+    if (language === 'FR') {
+      abstractTitle = textData.abstractTitle;
+    } else {
+      abstractTitle = textData.abstractTitleEn;
+    }
+  }
   // Matière
   let matiereText = matiere;
+  let matiereTitle = 'Matiere';
   if (textData.matiere !== '' && textData.matiereEn !== '') {
     if (language === 'FR') {
       matiereText = textData.matiere;
@@ -59,13 +68,28 @@ const AboutPage = ({ textData, language }) => {
       matiereText = textData.matiereEn;
     }
   }
+  if (textData.matiereTitle !== '' && textData.matiereTitleEn !== '') {
+    if (language === 'FR') {
+      matiereTitle = textData.matiereTitle;
+    } else {
+      matiereTitle = textData.matiereTitleEn;
+    }
+  }
   // Lumière et Couleur
   let lumiereText = lumiere;
+  let lumiereTitle = 'Lumiere'
   if (textData.lumiere !== '' && textData.lumiereEn !== '') {
     if (language === 'FR') {
       lumiereText = textData.lumiere;
     } else {
       lumiereText = textData.lumiereEn;
+    }
+  }
+  if (textData.lumiereTitle !== '' && textData.lumiereTitleEn !== '') {
+    if (language === 'FR') {
+      lumiereTitle = textData.lumiereTitle;
+    } else {
+      lumiereTitle = textData.lumiereTitleEn;
     }
   }
 
@@ -79,8 +103,7 @@ const AboutPage = ({ textData, language }) => {
           </div>
           {/* Matiere */}
           <div className="matiere mt-5">
-            <h2>{language === 'FR' ? 'Matière' : 'Material'}</h2>
-
+            <h2>{matiereTitle}</h2>
             <p>{matiereText}</p>
           </div>
         </div>
@@ -90,13 +113,13 @@ const AboutPage = ({ textData, language }) => {
           </div>
           {/* Abstrait */}
           <div className="abstrait">
-            <h2>{language === 'FR' ? 'Abstrait' : 'Abstract'}</h2>
+            <h2>{abstractTitle}</h2>
             <p>{abstraitText}</p>
           </div>
           {/* Lumière et Couleur */}
           <div className="lumiere mt-5">
             <h2>
-              {language === 'FR' ? 'Lumière et Couleur' : 'Light and Color'}
+              {lumiereTitle}
             </h2>
             <p>{lumiereText}</p>
           </div>
@@ -111,28 +134,27 @@ const AboutPage = ({ textData, language }) => {
         <div className="col-12 p-4">
           {/* Peinture */}
           <div className="peinture">
-            <h2>Peinture</h2>
             <p>{peintureText}</p>
           </div>
         </div>
         <div className="col-12 p-4">
           {/* Abstrait */}
           <div className="abstrait">
-            <h2>Abstrait</h2>
+            <h2>{abstractTitle}</h2>
             <p>{abstraitText}</p>
           </div>
         </div>
         <div className="col-12 p-4">
           {/* Matiere */}
           <div className="matiere">
-            <h2>Matière</h2>
+            <h2>{matiereTitle}</h2>
             <p>{matiereText}</p>
           </div>
         </div>
         <div className="col-12 p-4">
           {/* Lumière et Couleur */}
           <div className="lumiere">
-            <h2>Lumière et Couleur</h2>
+            <h2>{lumiereTitle}</h2>
             <p>{lumiereText}</p>
           </div>
         </div>
