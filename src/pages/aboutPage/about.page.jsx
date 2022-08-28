@@ -51,11 +51,11 @@ const AboutPage = ({ textData, language }) => {
       abstraitText = textData.abstraitEn;
     }
   }
-  if (textData.abstractTitle !== '' && textData.abstractTitleEn !== '') {
+  if (textData.abstraitTitle !== '' && textData.abstraitTitleEn !== '') {
     if (language === 'FR') {
-      abstractTitle = textData.abstractTitle;
+      abstractTitle = textData.abstraitTitle;
     } else {
-      abstractTitle = textData.abstractTitleEn;
+      abstractTitle = textData.abstraitTitleEn;
     }
   }
   // Matière
