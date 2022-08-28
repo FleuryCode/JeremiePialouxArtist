@@ -17,10 +17,10 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
   let data = {};
   let dataIndex = 0;
 
-  console.log(location);
+
   for (let i = 0; i < imageData.length; i++) {
     if (location === `/portfolio/${imageData[i].link}`) {
-      console.log(location);
+
       data = imageData[i];
       dataIndex = i;
     }
@@ -48,8 +48,7 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
       }
     }
   }, [data.title, imageData.length, language]);
-  console.log(data);
-  console.log(imageData);
+
 
   const getImages = async () => {
     let imageUrls = [];
