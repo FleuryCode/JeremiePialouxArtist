@@ -17,8 +17,10 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
   let data = {};
   let dataIndex = 0;
 
+  console.log(location);
   for (let i = 0; i < imageData.length; i++) {
     if (location === `/portfolio/${imageData[i].link}`) {
+      console.log(location);
       data = imageData[i];
       dataIndex = i;
     }
@@ -46,6 +48,8 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
       }
     }
   }, [data.title, imageData.length, language]);
+  console.log(data);
+  console.log(imageData);
 
   const getImages = async () => {
     let imageUrls = [];
@@ -103,10 +107,10 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
             <div className="container-fluid">
               <div className="row">
                 <div className="col-5">
-                  <h6>Date de Creation</h6>
+                  <h6>{language === 'FR' ? 'Date de Creation' : 'Creation Date'}</h6>
                 </div>
                 <div className="col-7">
-                  <h3>{data.creationDate}</h3>
+                  <h3>{language === 'FR' ? data.creationDate : data.enDate}</h3>
                 </div>
               </div>
             </div>
@@ -160,13 +164,13 @@ const PortfolioPiece = ({ imageData, language, imagesDownloading }) => {
               to={`/portfolio/${prevLink}`}
               className="prevContainer me-auto ms-4"
             >
-              <p>PRECEDENT</p>
+              <p>{language === 'FR' ? 'PRECEDENT' : 'PREVIOUS'}</p>
             </Link>
             <Link
               to={`/portfolio/${nextLink}`}
               className="nextContainer ms-auto me-4"
             >
-              <p>SUIVANT</p>
+              <p>{language === 'FR' ? 'SUIVANT' : 'NEXT'}</p>
             </Link>
           </div>
         </div>
