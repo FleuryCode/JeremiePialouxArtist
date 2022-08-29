@@ -66,9 +66,9 @@ const HomePage = ({ textData, language }) => {
           </div>
         </div>
       </div>
-      <div className="row p-0 mb-4 mt-3">
+      <div className="row p-0 mb-2 mt-3">
         <div className="col-12 d-flex flex-column mx-auto mainInfoBox">
-          <h1 className="">{language === 'FR' ? 'Mon Art' : 'My Art'}</h1>
+          <h1 className="">{language === 'FR' ? 'KAMONN - La liberté par les sens' : 'KAMONN - Freedom through the senses'}</h1>
           <h5 className="">{homeInfo}</h5>
         </div>
       </div>
