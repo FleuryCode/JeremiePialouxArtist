@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './navigation.styles.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ReactComponent as InstagramIcon } from '../../assets/instagramIcon.svg';
 // Redux
 import { connect } from 'react-redux';
 import { setTextLang } from '../../redux/text/text.actions';
 
 const Navigation = ({ language, setTextLang }) => {
-  const location = useLocation().pathname;
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const mobileMenuClick = () => {
     setMenuOpen(!menuOpen);
   };
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location]);
 
   // Scroll Event to Change Style
   useEffect(() => {
@@ -96,13 +91,13 @@ const Navigation = ({ language, setTextLang }) => {
         <div
           className={`${menuOpen ? 'menuOpen' : 'menuClosed'} mobileNavLink`}
         >
-          <Link className="mobileLink-item" to={'/#portfolio'}>
+          <Link onClick={() => setMenuOpen(false)} className="mobileLink-item" to={'/#portfolio'}>
             PORTFOLIO
           </Link>
-          <Link className="mobileLink-item" to={'/bio'}>
+          <Link onClick={() => setMenuOpen(false)} className="mobileLink-item" to={'/bio'}>
             BIO
           </Link>
-          <Link className="mobileLink-item" to={'/contact'}>
+          <Link onClick={() => setMenuOpen(false)} className="mobileLink-item" to={'/contact'}>
             CONTACT
           </Link>
           <div className="langSwitch">

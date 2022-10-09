@@ -5,7 +5,6 @@ import { peinture, abstrait, matiere, lumiere } from '../../websiteText';
 // Redux
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 const AboutPage = ({ textData, language }) => {
   //SEO

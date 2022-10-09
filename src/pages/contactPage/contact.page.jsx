@@ -39,7 +39,10 @@ const ContactPage = ({ language }) => {
     }
   }, [language]);
 
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  useEffect(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }, [])
+  
 
   const inputChangeHandle = (event) => {
     const { value, name } = event.target;
